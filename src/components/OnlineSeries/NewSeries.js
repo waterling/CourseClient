@@ -3,7 +3,7 @@ import './NewSeries.css';
 
 // Using "Stateless Functional Components"
 export default function(props) {
-    let link=__dirname+'resources/';
+    let link=__dirname+'resources/online/';
     return (
         <div className="series-list">
             {props.seriesList.map(series => {

@@ -9,7 +9,6 @@ import {getCharsSuccess} from "../actions/chars-actions";
  */
 
 export function getCharsWithOffsetPages(num) {
-    console.log('Load num: ' + num);
     return axios.get(apiPrefix + ':' + serverPort + '/chars/' + Date.now() + '?count=' + 3 + '&offset=' + 3 * num)
         .then(response => {
             store.dispatch(getCharsSuccess(response.data));

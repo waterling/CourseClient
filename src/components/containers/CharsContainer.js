@@ -15,7 +15,6 @@ class CharsListContainer extends Component {
     }
 
     loadNews (page){
-        console.log('Now page: '+page);
         charsApi.getCharsWithOffsetPages(page).then(data=>{
             if(!(data.length)){
                 this.setState({hasMore: false});

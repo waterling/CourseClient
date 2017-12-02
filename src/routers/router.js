@@ -9,6 +9,7 @@ import CharsListContainer from '../components/containers/CharsContainer';
 
 import {Link} from "react-router-dom";
 import SeriesContainer from "../components/containers/SeriesContainer";
+import OrganizationsContainer from "../components/containers/OrganizationsContainer";
 
 
 const history = createBrowserHistory();
@@ -31,6 +32,7 @@ export default (
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/news">News</Link></li>
                 <li><Link to="/chars">Characters</Link></li>
+                <li><Link to="/organizations">Organizations</Link></li>
                 <li><Link to="/series/3">Online</Link></li>
             </ul>
 
@@ -39,6 +41,7 @@ export default (
                 <Route exact path="/" component={Home}/>
                 <Route path="/news" component={NewsListContainer}/>
                 <Route path="/chars" component={CharsListContainer}/>
+                <Route path="/organizations" component={OrganizationsContainer}/>
                 <Route path="/series/:numOfSeason" component={SeriesList}/>
             </div>
         </div>

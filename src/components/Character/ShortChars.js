@@ -1,5 +1,5 @@
 import React from 'react';
-import './CharsItem.css'
+import './ShortChars.css'
 
 // Using "Stateless Functional Components"
 export default function(props) {

@@ -9,7 +9,6 @@ import {getNewsSuccess} from '../actions/news-actions';
  */
 
 export function getNewsWithOffsetPages(num) {
-    console.log('Load num: ' + num);
     return axios.get(apiPrefix + ':' + serverPort + '/news/' + Date.now() + '?count=' + 10 + '&offset=' + 10 * num)
         .then(response => {
             store.dispatch(getNewsSuccess(response.data));

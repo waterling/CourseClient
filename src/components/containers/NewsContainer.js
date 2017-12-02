@@ -15,7 +15,6 @@ class NewsListContainer extends Component {
     }
 
     loadNews (page){
-        console.log('Now page: '+page);
         newsApi.getNewsWithOffsetPages(page).then(data=>{
             if(!(data.length)){
                 this.setState({hasMore: false});

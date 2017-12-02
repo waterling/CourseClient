@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+
 import './ShortNews.css'
 
 // Using "Stateless Functional Components"
@@ -13,10 +15,9 @@ export default function(props) {
 
                     <div key={news.id} className="news-list-item">
                         <div className="short_news">
-                            <div className="title_news"><a>{news.id+'  '+news.title}</a></div>
+                            <div className="title_news"><Link>{news.title}</Link></div>
                             <div className="photo_news">
                                 <img width={190} height={120} src={link+news.imgURL} alt="Новый трейлер третьего сезона"/>
-
                                 <div className="date_news">{stringDate}</div>
                             </div>
                             <div className="info_news">
