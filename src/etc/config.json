@@ -1,0 +1,22 @@
+{
+  "apiPrefix": "http://localhost",
+  "serverPort": "3030",
+  "database": {
+    "login": "root",
+    "password": "root",
+    "name": "store",
+    "host": "localhost",
+    "port": "3306"
+  },
+
+  "stomp": {
+    "mq_username": "guest",
+    "mq_password": "guest",
+    "mq_vhost": "/",
+    "mq_ws":"ws://127.0.0.1:15674/ws",
+    "mq_url": "http://localhost:15674/stomp"
+  },
+  "link": {
+    "imgNews": "/resources/newsImg"
+  }
+}

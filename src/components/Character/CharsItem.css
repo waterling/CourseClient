@@ -1,0 +1,91 @@
+.short_actor {
+    float: left;
+    width: 200px;
+    margin: 0px 0px 20px 20px;
+    position: relative;
+}
+
+.short_actor img {
+    display: block;
+    width: 200px;
+    height: 317px;
+}
+
+.short_actor .name_actor {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+    -webkit-transition: 0.25s all;
+    -moz-transition: 0.25s all;
+    -o-transition: 0.25s all;
+    transition: 0.25s all;
+}
+
+.short_actor a:after {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(250, 129, 36);
+    background-color: rgba(250, 129, 36, .8);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    -webkit-transition: 0.25s all;
+    -moz-transition: 0.25s all;
+    -o-transition: 0.25s all;
+    transition: 0.25s all;
+    z-index: 5;
+    content: '';
+}
+
+.short_actor a:hover:after,
+.short_actor a:hover:before {
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+}
+
+.short_actor a:hover .name_actor {
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+
+.short_actor a:before {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -10px;
+    font-size: 16px;
+    content: 'Читать подробней';
+    color: #f1f1f1;
+    z-index: 6;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    -webkit-transition: 0.25s all;
+    -moz-transition: 0.25s all;
+    -o-transition: 0.25s all;
+    transition: 0.25s all;
+}
