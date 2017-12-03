@@ -20,9 +20,23 @@ export function getNewsWithOffsetPages(num) {
  */
 
 export function getLastNews(count) {
+    console.log(apiPrefix + ':' + serverPort + '/news/' + Date.now() + '?count=' + count);
     return axios.get(apiPrefix + ':' + serverPort + '/news/' + Date.now() + '?count=' + count)
         .then(response => {
             store.dispatch(getNewsSuccess(response.data));
+            return response.data;
+        });
+}
+/**
+ * Get news by id
+ */
+
+export function getNews(id) {
+    console.log(apiPrefix + ':' + serverPort + '/news/' + Date.now() + '?id=' + id);
+    return axios.get(apiPrefix + ':' + serverPort + '/news/' + Date.now() + '?id=' + id)
+        .then(response => {
+            store.dispatch(getNewsSuccess(response.data));
+            console.log(response.data);
             return response.data;
         });
 }

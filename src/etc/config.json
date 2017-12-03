@@ -1,5 +1,5 @@
 {
-  "apiPrefix": "http://localhost",
+  "apiPrefix": "http://192.168.43.170",
   "serverPort": "3030",
   "database": {
     "login": "root",

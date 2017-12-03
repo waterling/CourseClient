@@ -16,3 +16,14 @@ export function getAllOrganizations() {
             return response.data;
         });
 }
+/**
+ * Get organization by id
+ */
+
+export function getOrganization(id) {
+    return axios.get(apiPrefix + ':' + serverPort + '/org/' + Date.now()+'?id='+id)
+        .then(response => {
+            store.dispatch(getOrganizationsSuccess(response.data));
+            return response.data;
+        });
+}
