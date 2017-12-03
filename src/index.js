@@ -8,12 +8,12 @@ import App from './App'
 
 import store from './store';
 
-import router from './routers/router';
+import RouterSite from './routers/router';
 
 
 ReactDOM.render(
     <Provider store={store}>
-        {router}
+        <RouterSite/>
     </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

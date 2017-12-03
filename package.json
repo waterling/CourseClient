@@ -8,8 +8,11 @@
     "history": "^4.7.2",
     "lodash": "^4.17.4",
     "mapbox": "^1.0.0-beta9",
+    "material-ui": "^1.0.0-beta.22",
+    "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
     "qwest": "^4.5.0",
+    "radium": "^0.19.6",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-email-editor": "^0.5.0",
@@ -20,12 +23,16 @@
     "react-scripts": "1.0.17",
     "react-yandex-maps": "^2.1.4",
     "redux": "^3.7.2",
-    "redux-infinite-scroll": "^1.0.9"
+    "redux-infinite-scroll": "^1.0.9",
+    "typeface-roboto": "0.0.45"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-plugin-syntax-decorators": "^6.13.0"
   }
 }
