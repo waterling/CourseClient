@@ -1,3 +1,9 @@
+
+.series-list{
+    display: flex;
+    flex-wrap: wrap;
+
+}
 /*   new_series   */
 
 .new_series {

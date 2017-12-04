@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 import './ShortNews.css'
+import NewsCard from "./NewsCard";
 
 // Using "Stateless Functional Components"
 export default function(props) {
@@ -13,8 +14,10 @@ export default function(props) {
                 let stringDate = date.getDate()+' '+(date.getMonth()+1)+' '+date.getFullYear();
                 let linkToNews = '/fullnews/'+news.id;
                 return (
-
-                    <div key={news.id} className="news-list-item">
+                    <div className="news-card" key={news.id}>
+                        <NewsCard news={news} />
+                    </div>
+                    /*<div key={news.id} className="news-list-item">
                         <div className="short_news">
                             <div className="title_news">
                                 <Link to={linkToNews}>{news.title}</Link>
@@ -30,7 +33,7 @@ export default function(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*/
 
 
                 );

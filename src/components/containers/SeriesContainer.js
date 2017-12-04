@@ -11,11 +11,6 @@ class SeriesListContainer extends Component {
         seriesApi.getSeason(this.props.numOfSeason)
     }
 
-    componentWillReceiveProps(nextProps){
-        console.log(nextProps);
-        seriesApi.getSeason(this.props.numOfSeason)
-    }
-
     render() {
         return (
             <div>

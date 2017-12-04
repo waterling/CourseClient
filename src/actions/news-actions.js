@@ -6,3 +6,9 @@ export function getNewsSuccess(newsList) {
         newsList
     };
 }
+
+export function clearNews() {
+    return {
+        type: types.CLEAR_NEWS
+    }
+}

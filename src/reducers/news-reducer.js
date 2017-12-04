@@ -9,6 +9,8 @@ const newsReducer = function(state = initialState, action) {
     switch(action.type) {
         case types.GET_NEWS_SUCCESS:
             return Object.assign({}, state, { newsList: action.newsList });
+        case types.CLEAR_NEWS:
+            return initialState;
         default:
             return state;
     }

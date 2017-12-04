@@ -17,20 +17,19 @@ const styles = {
 function SimpleMediaCard(props) {
     const { classes } = props;
     return (
-        <div>
             <Card className={classes.card}>
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/contemplative-reptile.jpg"
+                    image={__dirname+'resources/1.png'}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography type="headline" component="h2">
-                        Lizard
+                        {props.news.title}
                     </Typography>
                     <Typography component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        Уже совсем скоро. Мы находимся всего в шести неделях от долгожданной премьеры 3 сезона сериала "Мистер Робот", которая состоится 11 октября 2017 года. Это означает, что пришло время освежить память, начиная со второго сезона....
+
                     </Typography>
                 </CardContent>
                 <CardActions>
@@ -42,12 +41,10 @@ function SimpleMediaCard(props) {
                     </Button>
                 </CardActions>
             </Card>
-        </div>
     );
 }
 
 SimpleMediaCard.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 export default withStyles(styles)(SimpleMediaCard);

@@ -4,6 +4,7 @@ import ShortNews from '../News/ShortNews';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as newsApi from '../../api/news-api';
 import './Loader.css';
+import * as seriesApi from "../../api/series-api";
 
 class NewsListContainer extends Component {
     constructor(){
@@ -14,6 +15,16 @@ class NewsListContainer extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+    }
+
+    componentDidMount(){
+        this.setState({items:[]})
+    }
+    componentWillMount(){
+        this.setState({items:[]})
+    }
     loadNews (page){
         newsApi.getNewsWithOffsetPages(page).then(data=>{
             if(!(data.length)){
@@ -40,7 +51,7 @@ class NewsListContainer extends Component {
                         <div className="dot"/>
                     </div>}
                 >
-                    <div className="ITEMS">
+                    <div className="items">
                         {this.state.items}
                     </div>
                 </InfiniteScroll>

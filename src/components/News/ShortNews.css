@@ -1,4 +1,16 @@
+.news-card{
+    width: 350px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 
+
+}
+.news-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 /*   short_news   */
 

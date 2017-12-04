@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store';
 import {apiPrefix} from '../etc/config.json';
 import {serverPort} from '../etc/config.json';
-import {getNewsSuccess} from '../actions/news-actions';
+import {clearNews, getNewsSuccess} from '../actions/news-actions';
 
 /**
  * Get users with offset
@@ -39,4 +39,7 @@ export function getNews(id) {
             console.log(response.data);
             return response.data;
         });
+}
+export function clearStoreNews() {
+    store.dispatch(clearNews());
 }

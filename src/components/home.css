@@ -1,9 +1,19 @@
-.content {
-    display: table-cell;
-    width: 680px;
+.content  {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 800px;
     vertical-align: top;
     padding: 0px;
     overflow: hidden;
+    align-content: center;
+    margin: auto;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .content .title,
@@ -29,7 +39,7 @@
 }
 
 .new_series_block {
-    /*display: inline-block;*/
+
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

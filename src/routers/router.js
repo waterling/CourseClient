@@ -26,7 +26,7 @@ import NavMenu from "../components/Navigation/NavMenu";
 
 // Pages
 const SeriesList = ({ match }) => (
-    <SeriesContainer numOfSeason={match.params.numOfSeason}/>
+    <SeriesContainer numOfSeason={match.params.numOfSeason} key={match.params.numOfSeason}/>
 );// Pages
 const News = ({ match }) => (
     <FullNewsContainer id={match.params.id}/>
