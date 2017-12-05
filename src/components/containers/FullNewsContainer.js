@@ -10,6 +10,9 @@ class FullNewsContainer extends Component {
     componentDidMount(){
         newsApi.getNews(this.props.id)
     }
+    componentWillUnmount(){
+        newsApi.clearStoreNews();
+    }
 
     render() {
         return (

@@ -4,9 +4,8 @@ import ShortNews from '../News/ShortNews';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as newsApi from '../../api/news-api';
 import './Loader.css';
-import * as seriesApi from "../../api/series-api";
 
-class NewsListContainer extends Component {
+class UpdateNewsContainer extends Component {
     constructor(){
         super();
         this.state ={
@@ -15,9 +14,6 @@ class NewsListContainer extends Component {
         };
     }
 
-    componentWillReceiveProps(nextProps){
-        console.log(nextProps);
-    }
 
     componentDidMount(){
         this.setState({items:[]})
@@ -36,7 +32,7 @@ class NewsListContainer extends Component {
 
     render() {
         let key = this.state.items.length;
-        this.state.items.push(<ShortNews newsList={this.props.newsList} key={key} textButtons={'Learn More'} link={'/news/'}/>);
+        this.state.items.push(<ShortNews newsList={this.props.newsList} key={key} textButtons={'Edit'} link={'/admin/news/updateNews/'}/>);
         return (
             <div>
                 <InfiniteScroll
@@ -66,4 +62,4 @@ const mapStateToProps = function(store) {
     };
 };
 
-export default connect(mapStateToProps)(NewsListContainer);
+export default connect(mapStateToProps)(UpdateNewsContainer);

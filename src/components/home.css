@@ -1,13 +1,15 @@
 .content  {
+
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 800px;
+    max-width: 1024px;
     vertical-align: top;
     padding: 0px;
+    padding-top: 52px;
     overflow: hidden;
     align-content: center;
-    margin: auto;
+    margin: 10px auto auto;
 }
 .home {
     display: flex;

@@ -15,7 +15,7 @@ export default function(props) {
                 let linkToNews = '/fullnews/'+news.id;
                 return (
                     <div className="news-card" key={news.id}>
-                        <NewsCard news={news} />
+                        <NewsCard news={news} textButton={props.textButtons} link={props.link}/>
                     </div>
                     /*<div key={news.id} className="news-list-item">
                         <div className="short_news">

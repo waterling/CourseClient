@@ -24,12 +24,12 @@ class Home extends React.Component {
                     <h1>Последние добавленные серии</h1>
                 </div>
                 {/*<div className="new_series_block">*/}
-                    <NewSeries seriesList={this.props.seriesList}/>
+                    <NewSeries seriesList={this.props.seriesList} />
                 {/*</div>*/}
                 <div className="title_2">
                     <h2>Новости сериала</h2>
                 </div>
-                <ShortNews newsList={this.props.newsList}/>
+                <ShortNews newsList={this.props.newsList} textButtons={'Learn More'} link={'/news/'} />
             </div>
         );
     }

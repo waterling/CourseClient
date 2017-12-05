@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Grow from 'material-ui/transitions/Grow';
 import {Manager, Target, Popper} from 'react-popper';
 import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
-import {Button} from "material-ui";
+import {AppBar, Button} from "material-ui";
 
 const styles = theme => ({
     last: {
@@ -16,7 +16,7 @@ const styles = theme => ({
     },
     menuItem: {
         '&:focus': {
-            background: theme.palette.primary[500],
+            background: theme.palette.primary[100],
             '& $text, & $icon': {
                 color: theme.palette.common.white,
             },
@@ -57,79 +57,82 @@ class NavMenu extends React.Component {
             textDecoration: 'none', /* Отменяем подчеркивание у ссылки */
         };
         return (
-            <Paper>
-                <Manager>
-                    <MenuList style={flexContainer} className={classes.menu}>
-                        <Link to="/" style={a}>
-                            <MenuItem className={classes.menuItem}>
-                                Главная
-                            </MenuItem>
-                        </Link>
-                        <Link to="/news" style={a}>
-                            <MenuItem className={classes.menuItem}>
-                                Новости
-                            </MenuItem>
-                        </Link>
-                        <Target>
-                            <MenuItem className={classes.menuItem} aria-owns={this.state.open ? 'menu-list' : null}
-                                      aria-haspopup="true"
-                                      onClick={this.handleClick}>
-                                Онлайн
-                            </MenuItem>
-                        </Target>
+            <AppBar >
+                <Paper>
+                    <Manager>
+                        <MenuList style={flexContainer} className={classes.menu}>
+                            <Link to="/" style={a}>
+                                <MenuItem className={classes.menuItem}>
+                                    Главная
+                                </MenuItem>
+                            </Link>
+                            <Link to="/news" style={a}>
+                                <MenuItem className={classes.menuItem}>
+                                    Новости
+                                </MenuItem>
+                            </Link>
+                            <Target>
+                                <MenuItem className={classes.menuItem} aria-owns={this.state.open ? 'menu-list' : null}
+                                          aria-haspopup="true"
+                                          onClick={this.handleClick}>
+                                    Онлайн
+                                </MenuItem>
+                            </Target>
 
-                        <Link to="/chars" style={a}>
-                            <MenuItem className={classes.menuItem}>
-                                Персонажи
-                            </MenuItem>
-                        </Link>
+                            <Link to="/chars" style={a}>
+                                <MenuItem className={classes.menuItem}>
+                                    Персонажи
+                                </MenuItem>
+                            </Link>
 
-                        <Link to="/organizations" style={a}>
-                            <MenuItem className={classes.menuItem}>
-                                Организации
-                            </MenuItem>
-                        </Link>
-                        <Link to="/map" style={a}>
-                            <MenuItem className={classes.menuItem}>
-                                Карта
-                            </MenuItem>
-                        </Link>
-                        <Link to="/" style={a}>
-                            <MenuItem className={classes.menuItem}>
-                                Магазин
-                            </MenuItem>
-                        </Link>
-                        <Button raised color="primary" className={classes.last}>
-                            Войти
-                        </Button>
+                            <Link to="/organizations" style={a}>
+                                <MenuItem className={classes.menuItem}>
+                                    Организации
+                                </MenuItem>
+                            </Link>
+                            <Link to="/map" style={a}>
+                                <MenuItem className={classes.menuItem}>
+                                    Карта
+                                </MenuItem>
+                            </Link>
+                            <Link to="/" style={a}>
+                                <MenuItem className={classes.menuItem}>
+                                    Магазин
+                                </MenuItem>
+                            </Link>
+                            <Button raised color="primary" className={classes.last}>
+                                Войти
+                            </Button>
 
-                    </MenuList>
+                        </MenuList>
 
-                    <Popper
-                        placement="bottom-start"
-                        eventsEnabled={open}
-                        className={classNames({[classes.popperClose]: !open})}
-                        style={{zIndex: 999999}}
-                    >
-                        <ClickAwayListener onClickAway={this.handleRequestClose}>
-                            <Grow in={open} id="menu-list" style={{transformOrigin: '0 0 0', zIndex: 999999}}>
-                                <Paper>
-                                    <MenuList role="menu">
-                                        <Link style={a} to="/online/1"><MenuItem onClick={this.handleRequestClose}>1
-                                            сезон</MenuItem></Link>
-                                        <Link style={a} to="/online/2"><MenuItem onClick={this.handleRequestClose}>2
-                                            сезон</MenuItem></Link>
-                                        <Link style={a} to="/online/3"><MenuItem onClick={this.handleRequestClose}>3
-                                            сезон</MenuItem></Link>
-                                    </MenuList>
-                                </Paper>
-                            </Grow>
-                        </ClickAwayListener>
-                    </Popper>
-                </Manager>
+                        <Popper
+                            placement="bottom-start"
+                            eventsEnabled={open}
+                            className={classNames({[classes.popperClose]: !open})}
+                            style={{zIndex: 999999}}
+                        >
+                            <ClickAwayListener onClickAway={this.handleRequestClose}>
+                                <Grow in={open} id="menu-list" style={{transformOrigin: '0 0 0', zIndex: 999999}}>
+                                    <Paper>
+                                        <MenuList role="menu">
+                                            <Link style={a} to="/online/1"><MenuItem onClick={this.handleRequestClose}>1
+                                                сезон</MenuItem></Link>
+                                            <Link style={a} to="/online/2"><MenuItem onClick={this.handleRequestClose}>2
+                                                сезон</MenuItem></Link>
+                                            <Link style={a} to="/online/3"><MenuItem onClick={this.handleRequestClose}>3
+                                                сезон</MenuItem></Link>
+                                        </MenuList>
+                                    </Paper>
+                                </Grow>
+                            </ClickAwayListener>
+                        </Popper>
+                    </Manager>
 
 
-            </Paper>
+                </Paper>
+            </AppBar>
+
         );
     }
 

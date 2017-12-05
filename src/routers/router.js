@@ -19,6 +19,8 @@ import FullNewsContainer from "../components/containers/FullNewsContainer";
 import EmailEditor from "../components/Editor/EmailEditor";
 import Map from "../components/YandexMap";
 import NavMenu from "../components/Navigation/NavMenu";
+import AddNewsContainer from "../components/containers/AddNewsContainer";
+import UpdateNewsContainer from "../components/containers/UpdateNewsContainer";
 
 
 
@@ -30,6 +32,9 @@ const SeriesList = ({ match }) => (
 );// Pages
 const News = ({ match }) => (
     <FullNewsContainer id={match.params.id}/>
+);
+const NewsUpdate = ({ match }) => (
+    <AddNewsContainer newsId={match.params.newsId}/>
 );
 
 
@@ -55,11 +60,14 @@ const Routing= ()=>(
             <div className="content">
                 <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path="/fullnews/:id" component={News}/>
-                <Route path="/news" component={NewsListContainer}/>
+                <Route path="/news/:id" component={News}/>
+                <Route exact path="/news" component={NewsListContainer}/>
+                <Route path="/admin/news/add" component={AddNewsContainer}/>
+                <Route path="/admin/news/update" component={UpdateNewsContainer}/>
+                <Route path="/admin/news/updateNews/:newsId" component={NewsUpdate}/>
                 <Route path="/chars" component={CharsListContainer}/>
                 <Route path="/organizations" component={OrganizationsContainer}/>
-                    <Route exact path="/online/:numOfSeason" component={SeriesList}/>
+                <Route exact path="/online/:numOfSeason" component={SeriesList}/>
                 <Route path="/editor" component={EmailEditor}/>
                 <Route path="/map" component={Map}/>
             </Switch>

@@ -43,3 +43,7 @@ export function getNews(id) {
 export function clearStoreNews() {
     store.dispatch(clearNews());
 }
+
+export function addNews(news) {
+    return axios.post(apiPrefix + ':' + serverPort + '/news/admin/' + Date.now(),news);
+}
