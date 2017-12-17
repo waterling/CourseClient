@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Grow from 'material-ui/transitions/Grow';
 import {Manager, Target, Popper} from 'react-popper';
 import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
-import {AppBar, Button} from "material-ui";
+import {AppBar, Button, Menu} from "material-ui";
 import Avatar from 'material-ui/Avatar';
 import * as cookie from "react-cookies";
 
@@ -31,8 +31,14 @@ const styles = theme => ({
 class NavMenu extends React.Component {
     state = {
         open: false,
-        display: "none"
+        display: "none",
+        anchorEl: null,
     };
+
+    handleMenu = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+
 
     handleClick = () => {
         if (this.state.open) {
@@ -41,15 +47,19 @@ class NavMenu extends React.Component {
         }
         this.setState({open: true, display: "block"});
     };
+    logout=()=>{
+        this.handleRequestClose();
+        cookie.remove('user');
 
+    };
     handleRequestClose = () => {
-        this.setState({open: false, display: "none"});
+        this.setState({open: false, display: "none", anchorEl: null});
     };
 
     render() {
         const {classes} = this.props;
-        const {open} = this.state;
-        const {display} = this.state;
+        const {open,display,anchorEl} = this.state;
+        const menuOpen = Boolean(anchorEl);
         const flexContainer = {
             display: 'flex',
             flexDirection: 'row',
@@ -105,10 +115,28 @@ class NavMenu extends React.Component {
                                 </MenuItem>
                             </a>
                             {cookie.load('user')
-                                ? <Link to={`/user`}>
-                                    <Avatar alt="You" src="/image/default-avatar.jpg" className={classes.last} />
+                                ?
+                                    <div className={classes.last}>
+                                        <Avatar alt="You" src="/image/default-avatar.jpg"  onClick={this.handleMenu}/>
+                                        <Menu
+                                            id="menu-appbar"
+                                            anchorEl={anchorEl}
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            transformOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            open={menuOpen}
+                                            onRequestClose={this.handleRequestClose}
+                                        >
+                                            <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
+                                            <MenuItem onClick={this.logout}>Log out</MenuItem>
+                                        </Menu>
+                                    </div>
 
-                                </Link>
                                 : <Link to="/login">
                                 <Button raised color="primary" className={classes.last}>
                                     Войти
