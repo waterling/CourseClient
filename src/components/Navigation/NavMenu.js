@@ -8,6 +8,8 @@ import Grow from 'material-ui/transitions/Grow';
 import {Manager, Target, Popper} from 'react-popper';
 import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
 import {AppBar, Button} from "material-ui";
+import Avatar from 'material-ui/Avatar';
+import * as cookie from "react-cookies";
 
 const styles = theme => ({
     last: {
@@ -102,9 +104,16 @@ class NavMenu extends React.Component {
                                     Магазин
                                 </MenuItem>
                             </a>
-                            <Button raised color="primary" className={classes.last}>
-                                Войти
-                            </Button>
+                            {cookie.load('user')
+                                ? <Link to={`/user`}>
+                                    <Avatar alt="You" src="/image/default-avatar.jpg" className={classes.last} />
+
+                                </Link>
+                                : <Link to="/login">
+                                <Button raised color="primary" className={classes.last}>
+                                    Войти
+                                </Button>
+                            </Link>}
 
                         </MenuList>
 

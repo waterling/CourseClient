@@ -16,6 +16,7 @@
     "radium": "^0.19.6",
     "react": "^16.1.1",
     "react-bootstrap": "^0.31.5",
+    "react-cookies": "^0.1.0",
     "react-dom": "^16.1.1",
     "react-dropzone": "^4.2.3",
     "react-email-editor": "^0.5.0",
@@ -33,6 +34,7 @@
     "reactstrap": "^4.8.0",
     "redux": "^3.7.2",
     "redux-infinite-scroll": "^1.0.9",
+    "sha1": "^1.1.1",
     "typeface-roboto": "0.0.45",
     "video-react": "^0.9.2"
   },

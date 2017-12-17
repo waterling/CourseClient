@@ -27,6 +27,8 @@ import AdminNewsPanel from "../components/Admin/AdminNewsPanel";
 import ContainerUpdateNews from "../components/Admin/ContainerUpdateNews";
 import FullCharsContainer from "../components/containers/FullCharactersContainer";
 import DeleteNews from "../components/Admin/DeleteNews";
+import SignUp from "../components/Login/SignUp/SignUp";
+import Login from "../components/Login/Login";
 
 
 
@@ -89,6 +91,9 @@ const Routing= ()=>(
                     <Route path="/online/series/:id" component={Series}/>
                     <Route path="/editor" component={EmailEditor}/>
                     <Route path="/map" component={Map}/>
+
+                    <Route path="/signup" component={SignUp}/>
+                    <Route path="/login" component={Login}/>
                 </Switch>
             </div>
         </div>

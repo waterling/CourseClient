@@ -16,6 +16,7 @@ export function getLastSeries(count) {
             return response.data;
         });
 }
+
 export function getSeason(num) {
     return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?numOfSeason=' + num)
         .then(response => {
@@ -23,10 +24,27 @@ export function getSeason(num) {
             return response.data;
         });
 }
+
 export function getSeries(id) {
     return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id)
         .then(response => {
             store.dispatch(getSeriesSuccess(response.data));
+            return response.data;
+        });
+}
+
+export function getSeriesForUser(id, uid) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid)
+        .then(response => {
+            store.dispatch(getSeriesSuccess(response.data));
+            console.log("GetSeriesForUser: "+ response);
+            return response.data;
+        });
+}
+
+export function updateCurrentTime(id, uid, time) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid+"&time=" + time)
+        .then(response => {
             return response.data;
         });
 }
