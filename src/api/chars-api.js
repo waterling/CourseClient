@@ -2,7 +2,8 @@ import axios from 'axios';
 import store from '../store';
 import {apiPrefix} from '../etc/config.json';
 import {serverPort} from '../etc/config.json';
-import {getCharsSuccess} from "../actions/chars-actions";
+import {clearChars, getCharsSuccess} from "../actions/chars-actions";
+import {clearNews, getNewsSuccess} from "../actions/news-actions";
 
 /**
  * Get chars with offset
@@ -14,4 +15,17 @@ export function getCharsWithOffsetPages(num) {
             store.dispatch(getCharsSuccess(response.data));
             return response.data;
         });
+}
+
+export function getChar(id) {
+    console.log(apiPrefix + ':' + serverPort + '/chars/' + Date.now() + '?id=' + id);
+    return axios.get(apiPrefix + ':' + serverPort + '/chars/' + Date.now() + '?id=' + id)
+        .then(response => {
+            store.dispatch(getCharsSuccess(response.data));
+            console.log(response.data);
+            return response.data;
+        });
+}
+export function clearStoreChars() {
+    store.dispatch(clearChars());
 }

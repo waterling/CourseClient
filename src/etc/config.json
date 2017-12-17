@@ -1,6 +1,6 @@
 {
   "apiPrefix": "http://192.168.43.170",
-  "serverPort": "3030",
+  "serverPort": "3035",
   "database": {
     "login": "root",
     "password": "root",

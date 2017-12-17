@@ -14,6 +14,10 @@ class CharsListContainer extends Component {
         };
     }
 
+    componentDidMount(){
+        this.setState({items:[]})
+    }
+
     loadNews (page){
         charsApi.getCharsWithOffsetPages(page).then(data=>{
             if(!(data.length)){

@@ -3,6 +3,7 @@ import store from '../store';
 import {apiPrefix} from '../etc/config.json';
 import {serverPort} from '../etc/config.json';
 import {getSeriesSuccess} from "../actions/series-actions";
+import {clearNews} from "../actions/news-actions";
 
 /**
  * Get chars with offset
@@ -21,4 +22,15 @@ export function getSeason(num) {
             store.dispatch(getSeriesSuccess(response.data));
             return response.data;
         });
+}
+export function getSeries(id) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id)
+        .then(response => {
+            store.dispatch(getSeriesSuccess(response.data));
+            return response.data;
+        });
+}
+
+export function clearStoreNews() {
+    store.dispatch(clearNews());
 }

@@ -18,6 +18,7 @@ class Home extends React.Component {
     }
 
     render() {
+        let key = this.props.newsList.length;
         return (
             <div className="home">
                 <div className="title">
@@ -29,7 +30,10 @@ class Home extends React.Component {
                 <div className="title_2">
                     <h2>Новости сериала</h2>
                 </div>
-                <ShortNews newsList={this.props.newsList} textButtons={'Learn More'} link={'/news/'} />
+                <ShortNews newsList={this.props.newsList} key={key} buttons={[{
+                    text: 'Learn More',
+                    link: '/news/'
+                }]} />
             </div>
         );
     }

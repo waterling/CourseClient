@@ -29,29 +29,31 @@ const styles = theme => ({
 class NavMenu extends React.Component {
     state = {
         open: false,
+        display: "none"
     };
 
     handleClick = () => {
         if (this.state.open) {
-            this.setState({open: false});
+            this.setState({open: false, display: "none"});
+
         }
-        this.setState({open: true});
+        this.setState({open: true, display: "block"});
     };
 
     handleRequestClose = () => {
-        this.setState({open: false});
+        this.setState({open: false, display: "none"});
     };
 
     render() {
         const {classes} = this.props;
         const {open} = this.state;
+        const {display} = this.state;
         const flexContainer = {
             display: 'flex',
             flexDirection: 'row',
             padding: 0,
             justifyContent: 'center',
             margin: 'auto'
-
         };
         const a = {
             textDecoration: 'none', /* Отменяем подчеркивание у ссылки */
@@ -95,11 +97,11 @@ class NavMenu extends React.Component {
                                     Карта
                                 </MenuItem>
                             </Link>
-                            <Link to="/" style={a}>
+                            <a href="http://localhost:3000" style={a}>
                                 <MenuItem className={classes.menuItem}>
                                     Магазин
                                 </MenuItem>
-                            </Link>
+                            </a>
                             <Button raised color="primary" className={classes.last}>
                                 Войти
                             </Button>
@@ -110,10 +112,10 @@ class NavMenu extends React.Component {
                             placement="bottom-start"
                             eventsEnabled={open}
                             className={classNames({[classes.popperClose]: !open})}
-                            style={{zIndex: 999999}}
+                            style={{display: display}}
                         >
                             <ClickAwayListener onClickAway={this.handleRequestClose}>
-                                <Grow in={open} id="menu-list" style={{transformOrigin: '0 0 0', zIndex: 999999}}>
+                                <Grow in={open} id="menu-list" style={{transformOrigin: '0 0 0'}}>
                                     <Paper>
                                         <MenuList role="menu">
                                             <Link style={a} to="/online/1"><MenuItem onClick={this.handleRequestClose}>1

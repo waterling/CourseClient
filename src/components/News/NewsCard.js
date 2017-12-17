@@ -9,6 +9,7 @@ import Typography from 'material-ui/Typography';
 const styles = {
     card: {
         maxWidth: 345,
+        maxHeight: 450
     },
     media: {
         height: 200,
@@ -21,23 +22,25 @@ function SimpleMediaCard(props) {
             <Card className={classes.card}>
                 <CardMedia
                     className={classes.media}
-                    image={__dirname+'resources/1.png'}
+                    image={__dirname+'resources/uploads/'+props.news.imgURL}
                 />
                 <CardContent>
                     <Typography type="headline" component="h2">
                         {props.news.title}
                     </Typography>
                     <Typography component="p">
-                        Уже совсем скоро. Мы находимся всего в шести неделях от долгожданной премьеры 3 сезона сериала "Мистер Робот", которая состоится 11 октября 2017 года. Это означает, что пришло время освежить память, начиная со второго сезона....
-
+                        {props.news.shortText.length>224? props.news.shortText.substring(0,224)+'....':props.news.shortText}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link style={{textDecoration: 'none'}} to={props.link+props.news.id}>
-                        <Button dense color="primary">
-                            {props.textButton}
-                        </Button>
-                    </Link>
+                    {props.buttons.map(item=>{
+                        return  <Link to={item.link+props.news.id}>
+                            <Button dense color="primary">
+                                {item.text}
+                            </Button>
+                        </Link>;
+                    })}
+
                 </CardActions>
             </Card>
     );

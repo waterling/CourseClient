@@ -6,3 +6,8 @@ export function getCharsSuccess(charsList) {
         charsList
     };
 }
+export function clearChars() {
+    return {
+        type: types.CLEAR_CHARS
+    }
+}

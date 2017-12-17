@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ShortNews from '../News/ShortNews';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as newsApi from '../../api/news-api';
-import './Loader.css';
+import '../containers/Loader.css';
 
 class UpdateNewsContainer extends Component {
     constructor(){
@@ -31,8 +31,18 @@ class UpdateNewsContainer extends Component {
     }
 
     render() {
+        const buttons = [
+            {
+                text: 'edit',
+                link: '/admin/news/update/'
+            },
+            {
+                text: 'delete',
+                link: '/admin/news/delete/'
+            }
+        ];
         let key = this.state.items.length;
-        this.state.items.push(<ShortNews newsList={this.props.newsList} key={key} textButtons={'Edit'} link={'/admin/news/updateNews/'}/>);
+        this.state.items.push(<ShortNews newsList={this.props.newsList} key={key} buttons={buttons} />);
         return (
             <div>
                 <InfiniteScroll

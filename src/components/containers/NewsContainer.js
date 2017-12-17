@@ -22,9 +22,6 @@ class NewsListContainer extends Component {
     componentDidMount(){
         this.setState({items:[]})
     }
-    componentWillMount(){
-        this.setState({items:[]})
-    }
     loadNews (page){
         newsApi.getNewsWithOffsetPages(page).then(data=>{
             if(!(data.length)){
@@ -36,7 +33,10 @@ class NewsListContainer extends Component {
 
     render() {
         let key = this.state.items.length;
-        this.state.items.push(<ShortNews newsList={this.props.newsList} key={key} textButtons={'Learn More'} link={'/news/'}/>);
+        this.state.items.push(<ShortNews newsList={this.props.newsList} key={key} buttons={[{
+            text: 'Learn More',
+            link: '/news/'
+        }]} />);
         return (
             <div>
                 <InfiniteScroll

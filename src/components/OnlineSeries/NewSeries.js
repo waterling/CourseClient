@@ -11,7 +11,7 @@ export default function(props) {
                 return (
                     <div key={series.id} className="new-series-item">
                         <div className="new_series">
-                            <Link to="/">
+                            <Link to={'/online/series/'+series.id}>
                                 <div className="series_thumb">
                                     <img width={190} height={120} src={link+series.imgURL} alt="Новая серия"/>
                                     <div className="ser_num">

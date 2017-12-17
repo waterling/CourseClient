@@ -47,3 +47,7 @@ export function clearStoreNews() {
 export function addNews(news) {
     return axios.post(apiPrefix + ':' + serverPort + '/news/admin/' + Date.now(),news);
 }
+
+export function deleteNews(id) {
+    return axios.delete(apiPrefix + ':' + serverPort + '/news/admin/' + Date.now()+ '?id=' + id)
+}
