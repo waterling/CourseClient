@@ -6,3 +6,8 @@ export function getSeriesSuccess(seriesList) {
         seriesList
     };
 }
+export function clearSeries() {
+    return {
+        type: types.CLEAR_SERIES
+    }
+}

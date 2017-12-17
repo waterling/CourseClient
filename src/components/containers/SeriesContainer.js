@@ -6,9 +6,18 @@ import * as seriesApi from '../../api/series-api';
 import './Loader.css';
 
 class SeriesListContainer extends Component {
+    constructor(props){
+        super(props);
+        seriesApi.clearStoreSeries();
+    }
+    componentWillMount(){
+        seriesApi.clearStoreSeries();
 
+    }
     componentDidMount(){
+        seriesApi.clearStoreSeries();
         seriesApi.getSeason(this.props.numOfSeason)
+
     }
 
     render() {

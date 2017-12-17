@@ -2,8 +2,8 @@ import axios from 'axios';
 import store from '../store';
 import {apiPrefix} from '../etc/config.json';
 import {serverPort} from '../etc/config.json';
-import {getSeriesSuccess} from "../actions/series-actions";
-import {clearNews} from "../actions/news-actions";
+import {clearSeries, getSeriesSuccess} from "../actions/series-actions";
+import {getFullSeriesSuccess} from "../actions/fullseries-actions";
 
 /**
  * Get chars with offset
@@ -28,7 +28,7 @@ export function getSeason(num) {
 export function getSeries(id) {
     return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id)
         .then(response => {
-            store.dispatch(getSeriesSuccess(response.data));
+            store.dispatch(getFullSeriesSuccess(response.data));
             return response.data;
         });
 }
@@ -36,8 +36,7 @@ export function getSeries(id) {
 export function getSeriesForUser(id, uid) {
     return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid)
         .then(response => {
-            store.dispatch(getSeriesSuccess(response.data));
-            console.log("GetSeriesForUser: "+ response);
+            store.dispatch(getFullSeriesSuccess(response.data));
             return response.data;
         });
 }
@@ -49,6 +48,6 @@ export function updateCurrentTime(id, uid, time) {
         });
 }
 
-export function clearStoreNews() {
-    store.dispatch(clearNews());
+export function clearStoreSeries() {
+    store.dispatch(clearSeries());
 }

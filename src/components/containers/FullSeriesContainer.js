@@ -20,7 +20,7 @@ class FullSeriesContainer extends Component {
         }
     }
     componentWillUnmount(){
-        // newsApi.clearStoreNews();
+        seriesApi.clearStoreSeries();
     }
     changeCurrentTime(sec,seriesID){
         (sec!==0 && (Math.round(sec)%10)===0)? seriesApi.updateCurrentTime(seriesID, cookie.load('user'),sec):'';
@@ -29,7 +29,7 @@ class FullSeriesContainer extends Component {
     render() {
         return (
             <div>
-                <FullSeries series={this.props.seriesList} numOfSeries={this.props.id} changeCurrentTime={this.changeCurrentTime}/>
+                <FullSeries series={this.props.fullSeries} numOfSeries={this.props.id} changeCurrentTime={this.changeCurrentTime}/>
             </div>
         );
     }
@@ -37,7 +37,7 @@ class FullSeriesContainer extends Component {
 
 const mapStateToProps = function(store) {
     return {
-        seriesList: store.seriesState.seriesList
+        fullSeries: store.fullSeriesState.fullSeries
     };
 };
 

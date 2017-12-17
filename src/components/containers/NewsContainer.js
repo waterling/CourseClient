@@ -13,6 +13,7 @@ class NewsListContainer extends Component {
             items: [],
             hasMore: true
         };
+
     }
 
     componentWillReceiveProps(nextProps){
