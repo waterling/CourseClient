@@ -29,6 +29,7 @@ import FullCharsContainer from "../components/containers/FullCharactersContainer
 import DeleteNews from "../components/Admin/DeleteNews";
 import SignUp from "../components/Login/SignUp/SignUp";
 import Login from "../components/Login/Login";
+import UserPage from "../components/PersonalPage/UserPage";
 
 
 
@@ -92,6 +93,7 @@ const Routing= ()=>(
                     <Route path="/editor" component={EmailEditor}/>
                     <Route path="/map" component={Map}/>
 
+                    <Route path="/user" component={UserPage}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/login" component={Login}/>
                 </Switch>

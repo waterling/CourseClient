@@ -52,6 +52,7 @@ class NavMenu extends React.Component {
         cookie.remove('user');
 
     };
+
     handleRequestClose = () => {
         this.setState({open: false, display: "none", anchorEl: null});
     };
@@ -132,8 +133,10 @@ class NavMenu extends React.Component {
                                             open={menuOpen}
                                             onRequestClose={this.handleRequestClose}
                                         >
-                                            <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
-                                            <MenuItem onClick={this.logout}>Log out</MenuItem>
+                                            <Link to="/user">
+                                                <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
+                                            </Link>
+                                            <MenuItem onClick={this.logout.bind(this)}>Log out</MenuItem>
                                         </Menu>
                                     </div>
 
