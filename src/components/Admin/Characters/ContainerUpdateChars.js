@@ -26,7 +26,7 @@ class ContainerUpdateChars extends Component {
     render() {
         return (
             <div>
-                {this.props.newsList.map(element => {
+                {this.props.charsList.map(element => {
                     return (
                         <UpdateChars
                             charsId={element.id}

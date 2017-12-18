@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 // Using "Stateless Functional Components"
 export default function(props) {
-    let link='./resources/uploads/';
+    let link=__dirname+'resources/uploads/';
     console.log(props.charsList);
     return (
         <div className="chars-list">

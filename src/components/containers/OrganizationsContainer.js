@@ -14,7 +14,7 @@ class OrganizationsListContainer extends Component {
     render() {
         return (
             <div>
-                <OrganizationsList organizationsList={this.props.organizationsList}/>
+                <OrganizationsList link={'/orgs/'} organizationsList={this.props.organizationsList}/>
             </div>
         );
     }

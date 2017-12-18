@@ -34,6 +34,9 @@ import FullOrganizationContainer from "../components/containers/FullOrganization
 import AdminCharsPanel from "../components/Admin/Characters/AdminCharsPanel";
 import AddCharsContainer from "../components/Admin/Characters/AddCharsContainer";
 import ContainerUpdateChars from "../components/Admin/Characters/ContainerUpdateChars";
+import AdminOrgsPanel from "../components/Admin/Organizations/AdminOrgsPanel";
+import AddOrgsContainer from "../components/Admin/Organizations/AddOrgsContainer";
+import ContainerUpdateOrgs from "../components/Admin/Organizations/ContainerUpdateOrgs";
 
 
 
@@ -64,6 +67,10 @@ const CharsUpdate = ({ match }) => (
     <ContainerUpdateChars charsId={match.params.charsId}/>
 );
 
+const OrgsUpdate = ({ match }) => (
+    <ContainerUpdateOrgs orgsId={match.params.orgsId}/>
+);
+
 const Series = ({match})=>(
     <FullSeriesContainer id={match.params.id}/>
 );
@@ -91,8 +98,8 @@ const Routing= ()=>(
                     <Route exact path="/chars" component={CharsListContainer}/>
                     <Route path="/chars/:id" component={Chars}/>
 
-                    <Route exact path="/organizations" component={OrganizationsContainer}/>
-                    <Route path="/organizations/:id" component={Organization}/>
+                    <Route exact path="/orgs" component={OrganizationsContainer}/>
+                    <Route path="/orgs/:id" component={Organization}/>
 
                     <Route exact path="/online/:numOfSeason" component={SeriesList}/>
                     <Route path="/online/series/:id" component={Series}/>
@@ -108,6 +115,11 @@ const Routing= ()=>(
                     <Route path="/admin/chars/add" component={AddCharsContainer}/>
                     {/*<Route path="/admin/chars/delete/:id" component={DeleteNewsContainer}/>*/}
                     <Route path="/admin/chars/update/:charsId" component={CharsUpdate}/>
+
+                    <Route exact path="/admin/orgs" component={AdminOrgsPanel}/>
+                    <Route path="/admin/orgs/add" component={AddOrgsContainer}/>
+                    {/*<Route path="/admin/chars/delete/:id" component={DeleteNewsContainer}/>*/}
+                    <Route path="/admin/orgs/update/:orgsId" component={OrgsUpdate}/>
 
                     <Route path="/editor" component={EmailEditor}/>
                     <Route path="/map" component={MapContainer}/>
