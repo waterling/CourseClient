@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import * as newsApi from '../../api/news-api';
+import * as newsApi from '../../../api/news-api';
 
-import '../containers/Loader.css';
+import '../../containers/Loader.css';
 import EmailEditor from 'react-email-editor';
 import {connect} from "react-redux";
 import {TextField} from "material-ui";
 import XHRUploader from 'react-xhr-uploader'
-import {apiPrefix} from '../../etc/config.json';
-import {serverPort} from '../../etc/config.json';
+import {apiPrefix} from '../../../etc/config.json';
+import {serverPort} from '../../../etc/config.json';
 
 class UpdateNews extends Component {
     constructor(props){

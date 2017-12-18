@@ -18,19 +18,22 @@ import OrganizationsContainer from "../components/containers/OrganizationsContai
 import FullNewsContainer from "../components/containers/FullNewsContainer";
 import EmailEditor from "../components/Editor/EmailEditor";
 import NavMenu from "../components/Navigation/NavMenu";
-import AddNewsContainer from "../components/Admin/AddNewsContainer";
-import UpdateNewsContainer from "../components/Admin/UpdateNewsContainer";
+import AddNewsContainer from "../components/Admin/News/AddNewsContainer";
+import UpdateNewsContainer from "../components/Admin/News/ListNewsForUpdateContainer";
 import FullSeriesContainer from "../components/containers/FullSeriesContainer";
 import AdminPanel from "../components/Admin/AdminPanel"
-import AdminNewsPanel from "../components/Admin/AdminNewsPanel";
-import ContainerUpdateNews from "../components/Admin/ContainerUpdateNews";
+import AdminNewsPanel from "../components/Admin/News/AdminNewsPanel";
+import ContainerUpdateNews from "../components/Admin/News/ContainerUpdateNews";
 import FullCharsContainer from "../components/containers/FullCharactersContainer";
-import DeleteNews from "../components/Admin/DeleteNews";
+import DeleteNews from "../components/Admin/News/DeleteNews";
 import SignUp from "../components/Login/SignUp/SignUp";
 import Login from "../components/Login/Login";
 import UserPage from "../components/PersonalPage/UserPage";
 import MapContainer from "../components/containers/MapContainer";
 import FullOrganizationContainer from "../components/containers/FullOrganizationContainer";
+import AdminCharsPanel from "../components/Admin/Characters/AdminCharsPanel";
+import AddCharsContainer from "../components/Admin/Characters/AddCharsContainer";
+import ContainerUpdateChars from "../components/Admin/Characters/ContainerUpdateChars";
 
 
 
@@ -54,7 +57,11 @@ const Chars = ({ match }) => (
 );
 
 const NewsUpdate = ({ match }) => (
-    <ContainerUpdateNews newsId={match.params.newsId} title={"TITLE"}/>
+    <ContainerUpdateNews newsId={match.params.newsId}/>
+);
+
+const CharsUpdate = ({ match }) => (
+    <ContainerUpdateChars charsId={match.params.charsId}/>
 );
 
 const Series = ({match})=>(
@@ -91,10 +98,16 @@ const Routing= ()=>(
                     <Route path="/online/series/:id" component={Series}/>
 
                     <Route exact path="/admin" component={AdminPanel}/>
+
                     <Route exact path="/admin/news" component={AdminNewsPanel}/>
                     <Route path="/admin/news/add" component={AddNewsContainer}/>
                     <Route path="/admin/news/delete/:id" component={DeleteNewsContainer}/>
                     <Route path="/admin/news/update/:newsId" component={NewsUpdate}/>
+
+                    <Route exact path="/admin/chars" component={AdminCharsPanel}/>
+                    <Route path="/admin/chars/add" component={AddCharsContainer}/>
+                    {/*<Route path="/admin/chars/delete/:id" component={DeleteNewsContainer}/>*/}
+                    <Route path="/admin/chars/update/:charsId" component={CharsUpdate}/>
 
                     <Route path="/editor" component={EmailEditor}/>
                     <Route path="/map" component={MapContainer}/>

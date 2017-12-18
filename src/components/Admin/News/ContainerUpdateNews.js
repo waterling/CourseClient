@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import * as newsApi from '../../api/news-api';
+import * as newsApi from '../../../api/news-api';
 
-import '../containers/Loader.css';
+import '../../containers/Loader.css';
 import EmailEditor from 'react-email-editor';
 import {connect} from "react-redux";
 import {TextField} from "material-ui";
@@ -26,7 +26,7 @@ class AddNewsContainer extends Component {
                 <div>
                     {this.props.newsList.map(element=>{
                         return (
-                            <UpdateNews newsId={element.id} title={element.title} imgURL={element.imgURL} design={element.design} updateNews={this.updateNews.bind(this)}/>
+                            <UpdateNews newsId={element.id} shortText={element.shortText} title={element.title} imgURL={element.imgURL} design={element.design} updateNews={this.updateNews.bind(this)}/>
                         );
                     })}
                 </div>

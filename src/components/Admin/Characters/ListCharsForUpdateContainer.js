@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import ShortChars from '../Character/ShortChars';
+import ShortChars from '../../Character/ShortChars';
 import InfiniteScroll from 'react-infinite-scroller';
-import * as charsApi from '../../api/chars-api';
-import './Loader.css';
+import * as charsApi from '../../../api/chars-api';
+import '../Loader.css';
 
-class CharsListContainer extends Component {
+class ListCharsForUpdateContainer extends Component {
     constructor(){
         super();
         this.state ={
@@ -29,7 +29,7 @@ class CharsListContainer extends Component {
 
     render() {
         let key = this.state.items.length;
-        this.state.items.push(<ShortChars link={'/chars/'} charsList={this.props.charsList} key={key}/>);
+        this.state.items.push(<ShortChars link={'/admin/chars/update/'} charsList={this.props.charsList} key={key}/>);
         return (
             <div>
                 <InfiniteScroll
@@ -59,4 +59,4 @@ const mapStateToProps = function(store) {
     };
 };
 
-export default connect(mapStateToProps)(CharsListContainer);
+export default connect(mapStateToProps)(ListCharsForUpdateContainer);

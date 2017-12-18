@@ -26,6 +26,15 @@ export function getChar(id) {
             return response.data;
         });
 }
+
+export function addChar(char) {
+    return axios.post(apiPrefix + ':' + serverPort + '/chars/admin/' + Date.now(),char);
+}
+
+export function deleteChar(id) {
+    return axios.delete(apiPrefix + ':' + serverPort + '/chars/admin/' + Date.now()+ '?id=' + id)
+}
+
 export function clearStoreChars() {
     store.dispatch(clearChars());
 }

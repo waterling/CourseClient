@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import ShortNews from '../News/ShortNews';
+import ShortNews from '../../News/ShortNews';
 import InfiniteScroll from 'react-infinite-scroller';
-import * as newsApi from '../../api/news-api';
-import '../containers/Loader.css';
+import * as newsApi from '../../../api/news-api';
+import '../Loader.css';
 
 class UpdateNewsContainer extends Component {
     constructor(){

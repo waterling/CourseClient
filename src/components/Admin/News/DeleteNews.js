@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as newsApi from '../../api/news-api';
+import * as newsApi from '../../../api/news-api';
 
 class DeleteNews extends Component {
     constructor(props){
