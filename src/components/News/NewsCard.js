@@ -19,7 +19,7 @@ const styles = {
 function SimpleMediaCard(props) {
     const { classes } = props;
     return (
-            <Card className={classes.card}>
+            <Card className={classes.card} key={props.news.id}>
                 <CardMedia
                     className={classes.media}
                     image={__dirname+'resources/uploads/'+props.news.imgURL}
@@ -34,7 +34,7 @@ function SimpleMediaCard(props) {
                 </CardContent>
                 <CardActions>
                     {props.buttons.map(item=>{
-                        return  <Link to={item.link+props.news.id}>
+                        return  <Link to={item.link+props.news.id} key={item.text}>
                             <Button dense color="primary">
                                 {item.text}
                             </Button>

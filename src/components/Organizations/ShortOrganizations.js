@@ -1,5 +1,6 @@
 import React from 'react';
 import './ShortOrganizations.css'
+import {Link} from "react-router-dom";
 
 // Using "Stateless Functional Components"
 export default function(props) {
@@ -9,10 +10,10 @@ export default function(props) {
             {props.organizationsList.map(organization => {
                 return (
                     <div className="short-organization" key={organization.id}>
-                        <a>
+                        <Link to={'/organizations/'+organization.id}>
                             <img src={link+organization.imgURL} alt={organization.name}/>
                             <div className="name-organization">{organization.name}</div>
-                        </a>
+                        </Link>
                     </div>
                 );
             })}

@@ -11,7 +11,7 @@ const charsReducer = function(state = initialState, action) {
             return Object.assign({}, state, { charsList: action.charsList });
         case types.CLEAR_CHARS:
             console.log("Cleare store")
-            return Object.assign({}, state, { charsList: [] });
+            return initialState;
         default:
             return state;
     }

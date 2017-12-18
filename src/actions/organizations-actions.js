@@ -6,3 +6,9 @@ export function getOrganizationsSuccess(organizationsList) {
         organizationsList
     };
 }
+
+export function clearStoreOrganizations() {
+    return{
+        type: types.CLEAR_ORGANIZATIONS,
+    }
+}

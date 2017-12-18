@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store';
 import {apiPrefix} from '../etc/config.json';
 import {serverPort} from '../etc/config.json';
-import {getOrganizationsSuccess} from "../actions/organizations-actions";
+import {getOrganizationsSuccess, clearStoreOrganizations} from "../actions/organizations-actions";
 
 
 /**
@@ -21,9 +21,13 @@ export function getAllOrganizations() {
  */
 
 export function getOrganization(id) {
-    return axios.get(apiPrefix + ':' + serverPort + '/org/' + Date.now()+'?id='+id)
+    return axios.get(apiPrefix + ':' + serverPort + '/org/' + Date.now() + '?id=' + id)
         .then(response => {
             store.dispatch(getOrganizationsSuccess(response.data));
             return response.data;
         });
+}
+
+export function clearOrganizations() {
+    store.dispatch(clearStoreOrganizations());
 }

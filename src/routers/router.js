@@ -30,6 +30,7 @@ import SignUp from "../components/Login/SignUp/SignUp";
 import Login from "../components/Login/Login";
 import UserPage from "../components/PersonalPage/UserPage";
 import MapContainer from "../components/containers/MapContainer";
+import FullOrganizationContainer from "../components/containers/FullOrganizationContainer";
 
 
 
@@ -39,22 +40,31 @@ import MapContainer from "../components/containers/MapContainer";
 const SeriesList = ({ match }) => (
     <SeriesContainer numOfSeason={match.params.numOfSeason} key={match.params.numOfSeason}/>
 );// Pages
+
 const News = ({ match }) => (
     <FullNewsContainer id={match.params.id}/>
 );
+
 const DeleteNewsContainer = ({ match }) => (
     <DeleteNews id={match.params.id}/>
 );
+
 const Chars = ({ match }) => (
     <FullCharsContainer id={match.params.id}/>
 );
+
 const NewsUpdate = ({ match }) => (
     <ContainerUpdateNews newsId={match.params.newsId} title={"TITLE"}/>
 );
 
 const Series = ({match})=>(
-        <FullSeriesContainer id={match.params.id}/>
+    <FullSeriesContainer id={match.params.id}/>
 );
+
+const Organization = ({match})=>(
+    <FullOrganizationContainer id={match.params.id} />
+);
+
 
 
 const Routing= ()=>(
@@ -63,33 +73,29 @@ const Routing= ()=>(
     <Router>
         <div>
             <NavMenu/>
-            {/*<ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/news">News</Link></li>
-                <li><Link to="/chars">Characters</Link></li>
-                <li><Link to="/organizations">Organizations</Link></li>
-                <li><Link to="/online/1">Online1</Link></li>
-                <li><Link to="/online/2">Online2</Link></li>
-                <li><Link to="/online/3">Online3</Link></li>
-                <li><Link to="/editor">Editor</Link></li>
-                <li><Link to="/map">Map</Link></li>
-            </ul>*/}
 
             <div className="content">
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route path="/news/:id" component={News}/>
+
                     <Route exact path="/news" component={NewsListContainer}/>
-                    <Route path="/admin/news/add" component={AddNewsContainer}/>
-                    <Route path="/admin/news/delete/:id" component={DeleteNewsContainer}/>
-                    <Route exact path="/admin" component={AdminPanel}/>
-                    <Route exact path="/admin/news" component={AdminNewsPanel}/>
-                    <Route path="/admin/news/update/:newsId" component={NewsUpdate}/>
+                    <Route path="/news/:id" component={News}/>
+
                     <Route exact path="/chars" component={CharsListContainer}/>
                     <Route path="/chars/:id" component={Chars}/>
-                    <Route path="/organizations" component={OrganizationsContainer}/>
+
+                    <Route exact path="/organizations" component={OrganizationsContainer}/>
+                    <Route path="/organizations/:id" component={Organization}/>
+
                     <Route exact path="/online/:numOfSeason" component={SeriesList}/>
                     <Route path="/online/series/:id" component={Series}/>
+
+                    <Route exact path="/admin" component={AdminPanel}/>
+                    <Route exact path="/admin/news" component={AdminNewsPanel}/>
+                    <Route path="/admin/news/add" component={AddNewsContainer}/>
+                    <Route path="/admin/news/delete/:id" component={DeleteNewsContainer}/>
+                    <Route path="/admin/news/update/:newsId" component={NewsUpdate}/>
+
                     <Route path="/editor" component={EmailEditor}/>
                     <Route path="/map" component={MapContainer}/>
 
