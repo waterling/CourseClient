@@ -5,6 +5,7 @@
   "dependencies": {
     "auth0-js": "^8.11.3",
     "axios": "^0.17.1",
+    "font-awesome": "^4.7.0",
     "google-map-react": "^0.25.0",
     "history": "^4.7.2",
     "lodash": "^4.17.4",

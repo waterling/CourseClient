@@ -36,7 +36,7 @@ class NavMenu extends React.Component {
     };
 
     handleMenu = event => {
-        this.setState({ anchorEl: event.currentTarget });
+        this.setState({anchorEl: event.currentTarget});
     };
 
 
@@ -47,7 +47,7 @@ class NavMenu extends React.Component {
         }
         this.setState({open: true, display: "block"});
     };
-    logout=()=>{
+    logout = () => {
         this.handleRequestClose();
         cookie.remove('user');
 
@@ -59,7 +59,7 @@ class NavMenu extends React.Component {
 
     render() {
         const {classes} = this.props;
-        const {open,display,anchorEl} = this.state;
+        const {open, display, anchorEl} = this.state;
         const menuOpen = Boolean(anchorEl);
         const flexContainer = {
             display: 'flex',
@@ -72,7 +72,7 @@ class NavMenu extends React.Component {
             textDecoration: 'none', /* Отменяем подчеркивание у ссылки */
         };
         return (
-            <AppBar >
+            <AppBar>
                 <Paper>
                     <Manager>
                         <MenuList style={flexContainer} className={classes.menu}>
@@ -116,35 +116,33 @@ class NavMenu extends React.Component {
                                 </MenuItem>
                             </a>
                             {cookie.load('user')
-                                ?
-                                    <div className={classes.last}>
-                                        <Avatar alt="You" src="/image/default-avatar.jpg"  onClick={this.handleMenu}/>
-                                        <Menu
-                                            id="menu-appbar"
-                                            anchorEl={anchorEl}
-                                            anchorOrigin={{
-                                                vertical: 'top',
-                                                horizontal: 'right',
-                                            }}
-                                            transformOrigin={{
-                                                vertical: 'top',
-                                                horizontal: 'right',
-                                            }}
-                                            open={menuOpen}
-                                            onRequestClose={this.handleRequestClose}
-                                        >
-                                            <Link to="/user">
-                                                <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
-                                            </Link>
-                                            <MenuItem onClick={this.logout.bind(this)}>Log out</MenuItem>
-                                        </Menu>
-                                    </div>
-
+                                ? <div className={classes.last}>
+                                    <Avatar alt="You" src="/image/default-avatar.jpg" onClick={this.handleMenu}/>
+                                    <Menu
+                                        id="menu-appbar"
+                                        anchorEl={anchorEl}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={menuOpen}
+                                        onRequestClose={this.handleRequestClose}
+                                    >
+                                        <Link to="/user">
+                                            <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
+                                        </Link>
+                                        <MenuItem onClick={this.logout.bind(this)}>Log out</MenuItem>
+                                    </Menu>
+                                </div>
                                 : <Link to="/login">
-                                <Button raised color="primary" className={classes.last}>
-                                    Войти
-                                </Button>
-                            </Link>}
+                                    <Button raised color="primary" className={classes.last}>
+                                        Войти
+                                    </Button>
+                                </Link>}
 
                         </MenuList>
 

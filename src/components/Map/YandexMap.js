@@ -2,12 +2,32 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import React from 'react';
 const mapState = { center: [40.813819, -73.941430], zoom: 12, controls: []};
 
-const MyPlacemark = () => (
+const YandexMap = (props) => (
     <div >
         <YMaps >
             <Map state={mapState} width={700} height={700}>
-
-                <Placemark
+                {props.labelsList.map(placeMark=>{
+                    console.log("Inside Map: "+JSON.stringify(placeMark));
+                    return(
+                        <Placemark
+                            key={placeMark.id}
+                            geometry={{
+                                coordinates: [parseFloat(placeMark.coordX), parseFloat(placeMark.coordY)],
+                            }}
+                            properties={{
+                                hintContent: placeMark.hintContent,
+                                balloonContent: placeMark.balloonContent,
+                            }}
+                            options={{
+                                iconLayout: 'default#image',
+                                iconImageHref: __dirname+'resources/'+placeMark.imgURL,
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15]
+                            }}
+                        />
+                    )
+                })}
+               {/* <Placemark
                     geometry={{
                         coordinates: [40.813819, -73.941430]
                     }}
@@ -126,7 +146,7 @@ const MyPlacemark = () => (
                         iconImageSize: [30, 30],
                         iconImageOffset: [-15, -15]
                     }}
-                />
+                />*/}
 
             </Map>
         </YMaps>
@@ -134,4 +154,4 @@ const MyPlacemark = () => (
 
 );
 
-export default MyPlacemark;
+export default YandexMap;

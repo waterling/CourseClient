@@ -17,7 +17,6 @@ import SeriesContainer from "../components/containers/SeriesContainer";
 import OrganizationsContainer from "../components/containers/OrganizationsContainer";
 import FullNewsContainer from "../components/containers/FullNewsContainer";
 import EmailEditor from "../components/Editor/EmailEditor";
-import Map from "../components/YandexMap";
 import NavMenu from "../components/Navigation/NavMenu";
 import AddNewsContainer from "../components/Admin/AddNewsContainer";
 import UpdateNewsContainer from "../components/Admin/UpdateNewsContainer";
@@ -30,6 +29,7 @@ import DeleteNews from "../components/Admin/DeleteNews";
 import SignUp from "../components/Login/SignUp/SignUp";
 import Login from "../components/Login/Login";
 import UserPage from "../components/PersonalPage/UserPage";
+import MapContainer from "../components/containers/MapContainer";
 
 
 
@@ -91,7 +91,7 @@ const Routing= ()=>(
                     <Route exact path="/online/:numOfSeason" component={SeriesList}/>
                     <Route path="/online/series/:id" component={Series}/>
                     <Route path="/editor" component={EmailEditor}/>
-                    <Route path="/map" component={Map}/>
+                    <Route path="/map" component={MapContainer}/>
 
                     <Route path="/user" component={UserPage}/>
                     <Route path="/signup" component={SignUp}/>

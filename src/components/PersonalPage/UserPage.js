@@ -23,7 +23,10 @@ class UserPage extends Component {
             <div className="userContainer" style={{display: "flex"}}>
                 <div className="userInfo" style={{display: "flex", flexDirection:"column"}}>
                     <img src={"/image/default-avatar.jpg"} style={{maxWidth:200, maxHeight: 300, paddingRight: 10, paddingBottom:10}}/>
-                    <Button onClick={this.logout} raised color="primary">
+                    <div style={{ paddingRight: 10, paddingBottom:10}}>
+                        Имя пользователя
+                    </div>
+                    <Button onClick={this.logout} raised color="primary" style={{ paddingRight: 10, paddingTop:10}}>
                         Выйти
                     </Button>
                 </div>
