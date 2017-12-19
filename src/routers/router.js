@@ -37,6 +37,10 @@ import ContainerUpdateChars from "../components/Admin/Characters/ContainerUpdate
 import AdminOrgsPanel from "../components/Admin/Organizations/AdminOrgsPanel";
 import AddOrgsContainer from "../components/Admin/Organizations/AddOrgsContainer";
 import ContainerUpdateOrgs from "../components/Admin/Organizations/ContainerUpdateOrgs";
+import AdminChooseSeasonPanel from "../components/Admin/Series/AdminChooseSeasonPanel";
+import AdminSeriesPanel from "../components/Admin/Series/AdminSeriesPanel";
+import AddSeriesContainer from "../components/Admin/Series/AddSeriesContainer";
+import ContainerUpdateSeries from "../components/Admin/Series/ContainerUpdateSeries";
 
 
 
@@ -69,6 +73,14 @@ const CharsUpdate = ({ match }) => (
 
 const OrgsUpdate = ({ match }) => (
     <ContainerUpdateOrgs orgsId={match.params.orgsId}/>
+);
+
+const SeriesUpdate = ({ match }) => (
+    <ContainerUpdateSeries seriesId={match.params.seriesId}/>
+);
+
+const AdminOnlinePanel = ({ match }) => (
+    <AdminSeriesPanel numOfSeason={match.params.numOfSeason}/>
 );
 
 const Series = ({match})=>(
@@ -120,6 +132,12 @@ const Routing= ()=>(
                     <Route path="/admin/orgs/add" component={AddOrgsContainer}/>
                     {/*<Route path="/admin/chars/delete/:id" component={DeleteNewsContainer}/>*/}
                     <Route path="/admin/orgs/update/:orgsId" component={OrgsUpdate}/>
+
+                    <Route exact path="/admin/online" component={AdminChooseSeasonPanel}/>
+                    <Route exact path="/admin/online/:numOfSeason" component={AdminOnlinePanel}/>
+                    <Route path="/admin/online/add" component={AddSeriesContainer}/>
+                    {/*<Route path="/admin/chars/delete/:id" component={DeleteNewsContainer}/>*/}
+                    <Route path="/admin/online/update/:seriesId" component={SeriesUpdate}/>
 
                     <Route path="/editor" component={EmailEditor}/>
                     <Route path="/map" component={MapContainer}/>

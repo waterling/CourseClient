@@ -29,11 +29,11 @@ export function getOrganization(id) {
 }
 
 export function addOrg(org) {
-    return axios.post(apiPrefix + ':' + serverPort + '/orgs/admin/' + Date.now(),org);
+    return axios.post(apiPrefix + ':' + serverPort + '/org/admin/' + Date.now(),org);
 }
 
 export function deleteOrg(id) {
-    return axios.delete(apiPrefix + ':' + serverPort + '/orgs/admin/' + Date.now()+ '?id=' + id)
+    return axios.delete(apiPrefix + ':' + serverPort + '/org/admin/' + Date.now()+ '?id=' + id)
 }
 
 export function clearOrganizations() {

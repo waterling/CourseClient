@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import NewSeriesList from '../OnlineSeries/NewSeries';
-import * as seriesApi from '../../api/series-api';
+import '../Loader.css';
+import * as organizationsApi from "../../../api/organizations-api";
+import NewSeriesList from '../../OnlineSeries/NewSeries';
+import * as seriesApi from "../../../api/series-api";
 
-import './Loader.css';
-
-class SeriesListContainer extends Component {
+class ListSeriesForUpdateContainer extends Component {
     constructor(props){
         super(props);
     }
@@ -22,7 +22,7 @@ class SeriesListContainer extends Component {
     render() {
         return (
             <div>
-                <NewSeriesList link={'/online/series/'} seriesList={this.props.seriesList} numOfSeason={this.props.numOfSeason}/>
+                <NewSeriesList link={'/admin/online/update/'} seriesList={this.props.seriesList} numOfSeason={this.props.numOfSeason}/>
             </div>
         );
     }
@@ -34,4 +34,4 @@ const mapStateToProps = function(store) {
     };
 };
 
-export default connect(mapStateToProps)(SeriesListContainer);
+export default connect(mapStateToProps)(ListSeriesForUpdateContainer);

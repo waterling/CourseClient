@@ -42,7 +42,7 @@ export function getSeriesForUser(id, uid) {
 }
 
 export function updateCurrentTime(id, uid, time) {
-    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid+"&time=" + time)
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid + "&time=" + time)
         .then(response => {
             return response.data;
         });
@@ -50,4 +50,12 @@ export function updateCurrentTime(id, uid, time) {
 
 export function clearStoreSeries() {
     store.dispatch(clearSeries());
+}
+
+export function addSeries(series) {
+    return axios.post(apiPrefix + ':' + serverPort + '/online/admin/' + Date.now(), series);
+}
+
+export function deleteNews(id) {
+    return axios.delete(apiPrefix + ':' + serverPort + '/online/admin/' + Date.now() + '?id=' + id)
 }

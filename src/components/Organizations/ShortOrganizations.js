@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 // Using "Stateless Functional Components"
 export default function(props) {
-    let link=__dirname+'resources/organizations/';
+    let link=__dirname+'resources/uploads/';
     return (
         <div className="org-list">
             {props.organizationsList.map(organization => {

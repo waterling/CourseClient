@@ -4,14 +4,14 @@ import './NewSeries.css';
 
 // Using "Stateless Functional Components"
 export default function(props) {
-    let link=__dirname+'resources/online/';
+    let link=__dirname+'resources/uploads/';
     return (
         <div className="series-list">
             {props.seriesList.map(series => {
                 return (
                     <div key={series.id} className="new-series-item">
                         <div className="new_series">
-                            <Link to={'/online/series/'+series.id}>
+                            <Link to={props.link+series.id}>
                                 <div className="series_thumb">
                                     <img width={190} height={120} src={link+series.imgURL} alt="Новая серия"/>
                                     <div className="ser_num">

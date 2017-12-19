@@ -38,7 +38,7 @@ export default class AdminPanel extends Component {
                     <Link to="/admin/news"><Button raised color="primary">Новости</Button></Link>
                     <Link to="/admin/chars"><Button raised color="primary">Персонажи</Button></Link>
                     <Link to="/admin/orgs"><Button raised color="primary">Организации</Button></Link>
-                    <Button raised color="primary">Series</Button>
+                    <Link to="/admin/online"><Button raised color="primary">Серии онлайн</Button></Link>
                 </div> }
             </div>
         )

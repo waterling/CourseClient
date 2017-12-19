@@ -90,7 +90,7 @@ class NavMenu extends React.Component {
                                 <MenuItem className={classes.menuItem} aria-owns={this.state.open ? 'menu-list' : null}
                                           aria-haspopup="true"
                                           onClick={this.handleClick}>
-                                    Онлайн
+                                    Смотреть онлайн
                                 </MenuItem>
                             </Target>
 
@@ -100,7 +100,7 @@ class NavMenu extends React.Component {
                                 </MenuItem>
                             </Link>
 
-                            <Link to="/organizations" style={a}>
+                            <Link to="/orgs">
                                 <MenuItem className={classes.menuItem}>
                                     Организации
                                 </MenuItem>

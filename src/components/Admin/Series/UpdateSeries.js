@@ -6,13 +6,15 @@ import {TextField} from "material-ui";
 import XHRUploader from 'react-xhr-uploader'
 import {apiPrefix} from '../../../etc/config.json';
 import {serverPort} from '../../../etc/config.json';
-import * as orgsApi from '../../../api/organizations-api'
+import * as seriesApi from '../../../api/series-api'
 
-class UpdateOrgs extends Component {
+class UpdateSeries extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.name,
+            numOfSeazon: props.numOfSeazon,
+            numOfSer: props.numOfSer,
+            src: props.src,
             imgURL: props.imgURL,
             pictures: []
         };
@@ -37,15 +39,31 @@ class UpdateOrgs extends Component {
         return (
             <div>
                 <TextField
-                    label="Название организации"
-                    placeholder="Название организации"
+                    label="Номер сезона"
+                    placeholder="Номер сезона"
                     margin="normal"
-                    value={this.state.name}
-                    onChange={this.handleChange('name')}
+                    value={this.state.numOfSeazon}
+                    onChange={this.handleChange('numOfSeazon')}
+                />
+                <br/>
+                <TextField
+                    label="Номер серии"
+                    placeholder="Номер серии"
+                    margin="normal"
+                    value={this.state.numOfSer}
+                    onChange={this.handleChange('numOfSer')}
+                />
+                <br/>
+                <TextField
+                    label="Ccылка на видео"
+                    placeholder="Ссылка на видео"
+                    margin="normal"
+                    value={this.state.src}
+                    onChange={this.handleChange('src')}
                 />
                 <br/>
                 <XHRUploader
-                    url={apiPrefix + ':' + serverPort + '/orgs/uploadfile'}
+                    url={apiPrefix + ':' + serverPort + '/online/uploadfile'}
                     auto
                 />
 
@@ -55,7 +73,6 @@ class UpdateOrgs extends Component {
                 />
                 <button onClick={this.exportHtml}>Сохранить изменения</button>
             </div>
-
         )
     }
     onLoad=()=>{
@@ -65,16 +82,18 @@ class UpdateOrgs extends Component {
     exportHtml = () => {
         this.editor.exportHtml(data => {
             const {design, html} = data;
-            let org = {
-                id: this.props.orgId,
-                name: this.state.name,
+            let series = {
+                id: this.props.seriesId,
+                numOfSeazon: this.state.numOfSeazon,
+                numOfSer: this.state.numOfSer,
+                src: this.state.src,
                 about: html,
                 design: JSON.stringify(design),
                 imgURL: this.state.imgURL
             };
-            orgsApi.addOrg(org);
+            seriesApi.addSeries(series);
         });
     }
 }
 
-export default UpdateOrgs;
+export default UpdateSeries;
