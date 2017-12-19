@@ -1,150 +1,151 @@
-import React, { Component } from 'react';
-import { PrismCode } from 'react-prism';
-import { Player, ControlBar } from 'video-react';
-import {
-    Button, Form, FormGroup,
-    Label, Input, Col
-} from 'reactstrap';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import List from 'material-ui/List';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import Hidden from 'material-ui/Hidden';
+import Divider from 'material-ui/Divider';
+import MenuIcon from 'material-ui-icons/Menu';
+import * as cookie from "react-cookies";
+import {Link} from "react-router-dom";
+import {MenuItem, MenuList} from "material-ui";
 
-const sources = {
-    sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
-    bunnyTrailer: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
-    bunnyMovie: 'http://media.w3.org/2010/05/bunny/movie.mp4',
-    test: 'http://media.w3.org/2010/05/video/movie_300.webm',
-};
+const drawerWidth = 240;
 
-export default class PlayerControlExample extends Component {
-    constructor(props, context) {
-        super(props, context);
+const styles = theme => ({
+    root: {
+        width: '100%',
+        height: 430,
+        marginTop: theme.spacing.unit * 3,
+        zIndex: 1,
+        overflow: 'hidden',
+    },
+    appFrame: {
+        position: 'relative',
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+    },
+    appBar: {
+        position: 'absolute',
+        marginLeft: drawerWidth,
+        [theme.breakpoints.up('md')]: {
+            width: `calc(100% - ${drawerWidth}px)`,
+        },
+    },
+    navIconHide: {
+        [theme.breakpoints.up('md')]: {
+            display: 'none',
+        },
+    },
+    drawerHeader: theme.mixins.toolbar,
+    drawerPaper: {
+        width: 250,
+        [theme.breakpoints.up('md')]: {
+            width: drawerWidth,
+            position: 'relative',
+            height: '100%',
+        },
+    },
+    content: {
+        backgroundColor: theme.palette.background.default,
+        width: '100%',
+        padding: theme.spacing.unit * 3,
+        height: 'calc(100% - 56px)',
+        marginTop: 56,
+        [theme.breakpoints.up('sm')]: {
+            height: 'calc(100% - 64px)',
+            marginTop: 64,
+        },
+    },
+});
 
-        this.state = {
-            source: sources['bunnyMovie'],
-        };
+class ResponsiveDrawer extends React.Component {
+    state = {
+        mobileOpen: false,
+    };
 
-        this.play = this.play.bind(this);
-        this.pause = this.pause.bind(this);
-        this.load = this.load.bind(this);
-        this.changeCurrentTime = this.changeCurrentTime.bind(this);
-        this.seek = this.seek.bind(this);
-        this.changePlaybackRateRate = this.changePlaybackRateRate.bind(this);
-        this.changeVolume = this.changeVolume.bind(this);
-        this.setMuted = this.setMuted.bind(this);
-    }
-
-    componentDidMount() {
-        // subscribe state change
-        this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
-    }
-
-    handleStateChange(state, prevState) {
-        // copy player state to this component's state
-        this.setState({
-            player: state
-        });
-    }
-
-    play() {
-        this.refs.player.play();
-    }
-
-    pause() {
-        this.refs.player.pause();
-    }
-
-    load() {
-        this.refs.player.load();
-    }
-
-    changeCurrentTime(seconds) {
-        return () => {
-            const { player } = this.refs.player.getState();
-            const currentTime = player.currentTime;
-            this.refs.player.seek(currentTime + seconds);
-        };
-    }
-
-    seek(seconds) {
-        return () => {
-            this.refs.player.seek(seconds);
-        };
-    }
-
-    changePlaybackRateRate(steps) {
-        return () => {
-            const { player } = this.refs.player.getState();
-            const playbackRate = player.playbackRate;
-            this.refs.player.playbackRate = playbackRate + steps;
-        };
-    }
-
-    changeVolume(steps) {
-        return () => {
-            const { player } = this.refs.player.getState();
-            const volume = player.volume;
-            this.refs.player.volume = volume + steps;
-        };
-    }
-
-    setMuted(muted) {
-        return () => {
-            this.refs.player.muted = muted;
-        };
-    }
-
-    changeSource(name) {
-        return () => {
-            this.setState({
-                source: sources[name]
-            });
-            this.refs.player.load();
-        };
-    }
+    handleDrawerToggle = () => {
+        this.setState({ mobileOpen: !this.state.mobileOpen });
+    };
 
     render() {
+        const { classes, theme } = this.props;
+
+        const drawer = (
+            <div>
+                <div className={classes.drawerHeader} />
+                <MenuList className={classes.menu}>
+                        <MenuItem >
+                            Главная
+                        </MenuItem>
+                        <MenuItem>
+                            Новости
+                        </MenuItem>
+                </MenuList>
+            </div>
+        );
+
         return (
-            <div className={"Player"} style={{height: 1000}}>
-                <Player
-                    ref="player"
-                    autoPlay
-                >
-                    <source src={this.state.source} />
-                    <ControlBar autoHide={false} />
-                </Player>
-                <div className="py-3">
-                    <Button onClick={this.play} className="mr-3">play()</Button>
-                    <Button onClick={this.pause} className="mr-3">pause()</Button>
-                    <Button onClick={this.load} className="mr-3">load()</Button>
+            <div className={classes.root}>
+                <div className={classes.appFrame}>
+                    <AppBar className={classes.appBar}>
+                        <Toolbar>
+                            <IconButton
+                                color="contrast"
+                                aria-label="open drawer"
+                                onClick={this.handleDrawerToggle}
+                                className={classes.navIconHide}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography type="title" color="inherit" noWrap>
+                                Responsive drawer
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                    <Hidden mdUp>
+                        <Drawer
+                            type="temporary"
+                            open={this.state.mobileOpen}
+                            classes={{
+                                paper: classes.drawerPaper,
+                            }}
+                            onRequestClose={this.handleDrawerToggle}
+                            ModalProps={{
+                                keepMounted: true, // Better open performance on mobile.
+                            }}
+                        >
+                            {drawer}
+                        </Drawer>
+                    </Hidden>
+                    <Hidden mdDown implementation="css">
+                        <Drawer
+                            type="permanent"
+                            open
+                            classes={{
+                                paper: classes.drawerPaper,
+                            }}
+                        >
+                            {drawer}
+                        </Drawer>
+                    </Hidden>
+                    <main className={classes.content}>
+                        <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    </main>
                 </div>
-                <div className="pb-3">
-                    <Button onClick={this.changeCurrentTime(10)} className="mr-3">currentTime += 10</Button>
-                    <Button onClick={this.changeCurrentTime(-10)} className="mr-3">currentTime -= 10</Button>
-                    <Button onClick={this.seek(50)} className="mr-3">currentTime = 50</Button>
-                </div>
-                <div className="pb-3">
-                    <Button onClick={this.changePlaybackRateRate(1)} className="mr-3">playbackRate++</Button>
-                    <Button onClick={this.changePlaybackRateRate(-1)} className="mr-3">playbackRate--</Button>
-                    <Button onClick={this.changePlaybackRateRate(0.1)} className="mr-3">playbackRate+=0.1</Button>
-                    <Button onClick={this.changePlaybackRateRate(-0.1)} className="mr-3">playbackRate-=0.1</Button>
-                </div>
-                <div className="pb-3">
-                    <Button onClick={this.changeVolume(0.1)} className="mr-3">volume+=0.1</Button>
-                    <Button onClick={this.changeVolume(-0.1)} className="mr-3">volume-=0.1</Button>
-                    <Button onClick={this.setMuted(true)} className="mr-3">muted=true</Button>
-                    <Button onClick={this.setMuted(false)} className="mr-3">muted=false</Button>
-                </div>
-                <div className="pb-3">
-                    <Button onClick={this.changeSource('sintelTrailer')} className="mr-3">Sintel teaser</Button>
-                    <Button onClick={this.changeSource('bunnyTrailer')} className="mr-3">Bunny trailer</Button>
-                    <Button onClick={this.changeSource('bunnyMovie')} className="mr-3">Bunny movie</Button>
-                    <Button onClick={this.changeSource('test')} className="mr-3">Test movie</Button>
-                </div>
-                <div>State</div>
-                {/*<pre>
-          <PrismCode className="language-json">
-            {JSON.stringify(this.state.player, null, 2)}
-          </PrismCode>
-        </pre>*/}
             </div>
         );
     }
 }
+
+ResponsiveDrawer.propTypes = {
+    classes: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
