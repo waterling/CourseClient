@@ -7,7 +7,7 @@ export default class AdminOrgsPanel extends Component {
     render () {
         return(
             <div >
-                <Button raised color="primary">Add orgs</Button>
+                <Link to={'/admin/orgs/add'} ><Button raised color="primary">Добавить организацию</Button></Link>
                 <ListOrgsForUpdateContainer/>
             </div>
         )

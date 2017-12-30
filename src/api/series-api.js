@@ -24,6 +24,14 @@ export function getSeason(num) {
             return response.data;
         });
 }
+export function getSeasonForUser(num, uid) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?numOfSeason=' + num+'&uid=' + uid)
+        .then(response => {
+            store.dispatch(getSeriesSuccess(response.data));
+            console.log('User: ' + JSON.stringify(response.data));
+            return response.data;
+        });
+}
 
 export function getSeries(id) {
     return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id)
@@ -40,10 +48,25 @@ export function getSeriesForUser(id, uid) {
             return response.data;
         });
 }
-
-export function updateCurrentTime(id, uid, time) {
-    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid + "&time=" + time)
+export function getAllSeriesForUser(uid) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?uid=' + uid)
         .then(response => {
+            store.dispatch(getSeriesSuccess(response.data));
+            return response.data;
+        });
+}
+
+export function updateCurrentTime(id, uid, time, fluid, duration) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid + "&time=" + time+ "&fluid=" + fluid+ "&duration=" + duration)
+        .then(response => {
+            console.log(response);
+            return response.data;
+        });
+}
+export function updateHaveSeen(id, uid) {
+    return axios.get(apiPrefix + ':' + serverPort + '/online/' + Date.now() + '?id=' + id + "&uid=" + uid + "&haveSeen=" + true)
+        .then(response => {
+            console.log(response);
             return response.data;
         });
 }

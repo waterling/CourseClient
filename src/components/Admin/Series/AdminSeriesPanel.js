@@ -7,7 +7,7 @@ export default class AdminSeriesPanel extends Component {
     render () {
         return(
             <div >
-                <Button raised color="primary">Добавить серию</Button>
+                <Link to={'/admin/addSeries'} ><Button raised color="primary">Добавить серию</Button></Link>
                 <ListSeriesForUpdateContainer numOfSeason={this.props.numOfSeason}/>
             </div>
         )

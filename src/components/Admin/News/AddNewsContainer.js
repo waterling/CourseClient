@@ -5,6 +5,7 @@ import '../../containers/Loader.css';
 import EmailEditor from 'react-email-editor';
 import {connect} from "react-redux";
 import {TextField} from "material-ui";
+import { ToastContainer, toast } from 'react-toastify';
 import {apiPrefix} from '../../../etc/config.json';
 import {serverPort} from '../../../etc/config.json';
 
@@ -26,6 +27,26 @@ class AddNewsContainer extends Component {
             };
         }
     }
+
+    notify=(text,type)=>{
+        switch (type){
+            case 'SUCCESS':
+                toast.success(text,{
+                    position: toast.POSITION.TOP_RIGHT
+                });
+                break;
+            case 'ERROR':
+                toast.error(text,{
+                    position: toast.POSITION.TOP_RIGHT
+                });
+                break;
+            default:
+                toast("Default",{
+                    position: toast.POSITION.TOP_RIGHT
+                });
+
+        }
+    };
 
     handleChange = name => event => {
         this.setState({
@@ -82,6 +103,8 @@ class AddNewsContainer extends Component {
                     onLoad={this.onLoad}
                 />
                 <button onClick={this.exportHtml}>Export HTML</button>
+                <button onClick={this.notify}>Export HTML</button>
+                {/*<ToastContainer/>*/}
             </div>
 
         )
@@ -108,7 +131,8 @@ class AddNewsContainer extends Component {
                 console.log(news);
             }
             newsApi.addNews(news).then(data =>{
-                console.log(data);
+                console.log("Response: ", data.data.status);
+                this.notify(data.data.status,'SUCCESS');
             });
         });
     }

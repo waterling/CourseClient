@@ -4,6 +4,7 @@ import ShortChars from '../Character/ShortChars';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as charsApi from '../../api/chars-api';
 import './Loader.css';
+import {Divider} from "material-ui";
 
 class CharsListContainer extends Component {
     constructor(){
@@ -32,6 +33,9 @@ class CharsListContainer extends Component {
         this.state.items.push(<ShortChars link={'/chars/'} charsList={this.props.charsList} key={key}/>);
         return (
             <div>
+                <div className="title"><h1>Персонажи сериала</h1></div>
+                <Divider/>
+                <br/>
                 <InfiniteScroll
                     pageStart={-1}
                     loadMore={this.loadNews.bind(this)}

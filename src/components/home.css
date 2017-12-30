@@ -1,31 +1,122 @@
 .content  {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
     max-width: 1024px;
     vertical-align: top;
-    padding: 0px;
-    padding-top: 52px;
+    padding: 52px 0px 0px;
     overflow: hidden;
     align-content: center;
     margin: 10px auto auto;
 }
 .home {
     display: flex;
+    max-width: 756px;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
+}
+.body-content {
+    width: 756px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    width: 236px;
+    height: 300px;
+    background-color: #ffffff;
+    text-decoration: none;
+
+}
+.item h2 {
+    text-decoration: none;
+}
+.user-info {
+    width: 556px;
+    margin-left: 20px;
+}
+.season-info h2{
+    font-size: 18px;
+    border-left: 5px solid #ff3c2d;
+    line-height: 40px;
+}
+.user-info .season-info{
+
+    position: relative;
+    overflow: hidden;
+}
+.user-info .season-info .season-details-block{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+.user-info .half-hor-spacer{
+    height: 5px;
+    clear: both;
+}
+
+.user-info .season-info .season-details-block .season-body{
+    position: relative;
+    overflow: hidden;
+    padding-left: 15px;
+    width: 295px;
+    margin-right: 0 ;
+}
+.user-info .season-info .season-details-block .body .season-details{
+    position: relative;
+    padding-top: 5px;
+    width: 295px;
+}
+
+.user-info .season-info .season-details-block .mark-green-box{
+    position: absolute;
+    top: 0px;
+    right: 82px;
+}
+
+.user-info .mark-green-box{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    background: #00d254;
+    padding: 9px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    text-align:center;
+    border-radius: 3px 3px 3px 3px;
+    width: 30px;
+    height: 30px;
+}
+.user-info .season-info .season-details-block .haveseen-btn{
+    position: absolute;
+    right: 124px;
+    cursor: pointer;
+}
+
+.user-info .haveseen-btn{
+    border-radius: 3px;
+    border: 2px solid #745ec5;
+    width: 30px;
+    height: 30px;
+    background: #745ec5 url('http://www.lostfilm.tv/vision/white-eye-icon.png') center no-repeat;
+}
+.user-info .haventseen-btn{
+    border-radius: 3px;
+    border: 2px solid #745ec5;
+    width: 30px;
+    height: 30px;
+    background:url('http://www.lostfilm.tv/vision/pink-eye-icon.png') center no-repeat;
 }
 
 .content .title,
 .content .title_2,
 .content .title_full {
-    border-bottom: 1px solid #dddfe1;
+    /*border-bottom: 1px solid #dddfe1;*/
     font-size: 21px;
     font-weight: 700;
     color: #333;
     padding: 15px 0px 15px 0px;
-    margin: 0px 20px 20px 20px;
 }
 
 a {
@@ -45,6 +136,28 @@ a {
 
 .new_series_block {
 
+}
+.desc_cat {
+    padding: 10px 20px 20px 20px;
+    color: #92a6b6;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+    clear: both;
+}
+.sidebar {
+    position: fixed;
+    margin-left: 20px;
+    width: 236px;
+}
+
+.widget-vk {
+    width: 236px;
+}
+.user-series-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

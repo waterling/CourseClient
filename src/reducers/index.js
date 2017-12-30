@@ -8,6 +8,7 @@ import seriesReducer from "./series-reducer";
 import organizationsReducer from "./organizations-reducer";
 import fullSeriesReducer from "./fullseries-reducer";
 import mapReducer from "./map-reducer";
+import userReducer from "./user-reducer";
 
 
 // Combine Reducers
@@ -17,7 +18,8 @@ const reducers = combineReducers({
     seriesState: seriesReducer,
     organizationsState: organizationsReducer,
     fullSeriesState: fullSeriesReducer,
-    mapState: mapReducer
+    mapState: mapReducer,
+    userState: userReducer,
 });
 
 export default reducers;

@@ -1,11 +1,15 @@
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import React from 'react';
+import {Divider} from "material-ui";
 const mapState = { center: [40.813819, -73.941430], zoom: 12, controls: []};
 
 const YandexMap = (props) => (
     <div >
+        <div className="title"><h1>Карта событий сериала</h1></div>
+        <Divider/>
+        <br/>
         <YMaps >
-            <Map state={mapState} width={700} height={700}>
+            <Map state={mapState} width={756} height={700}>
                 {props.labelsList.map(placeMark=>{
                     console.log("Inside Map: "+JSON.stringify(placeMark));
                     return(

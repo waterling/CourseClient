@@ -51,8 +51,8 @@ class Login extends React.Component {
                     password: protectedPassword
                 }, {withCredentials: true}).then(function (response) {
                     if (response.data.success) {
-                        cookie.save('user', response.data.data);
-                        cookie.save('avatarURL','');
+                        cookie.save('user', response.data.data.user);
+                        cookie.save('avatarURL', response.data.data.avatarURL);
                         currentThis.setState({
                             errors: {}
                         });

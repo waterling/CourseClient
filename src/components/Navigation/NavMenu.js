@@ -17,6 +17,7 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import Typography from 'material-ui/Typography';
 import Drawer from 'material-ui/Drawer';
+import {shopLink} from "../../etc/config";
 
 
 const drawerWidth = 240;
@@ -116,7 +117,7 @@ class NavMenu extends React.Component {
     };
 
     render() {
-
+        console.log(cookie.load('avatarURL'));
 
         const {classes} = this.props;
         const {open, display, anchorEl} = this.state;
@@ -137,7 +138,7 @@ class NavMenu extends React.Component {
                     {cookie.load('user')
                         ? <div className={classes.last}>
                             <Link to="/user">
-                                <Avatar alt="You" src="/image/default-avatar.jpg" onClick={this.handleMenu}/>
+                                <Avatar alt="You" src={"/image/avatar/"+(cookie.load('avatarURL')?cookie.load('avatarURL'):"default-avatar.jpg")} onClick={this.handleMenu}/>
                             </Link>
 
                         </div>
@@ -193,7 +194,7 @@ class NavMenu extends React.Component {
                             Карта
                         </MenuItem>
                     </Link>
-                    <a href="http://localhost:3000" style={a}>
+                    <a href={shopLink} style={a}>
                         <MenuItem className={classes.menuItem}>
                             Магазин
                         </MenuItem>
@@ -245,7 +246,7 @@ class NavMenu extends React.Component {
                                         </MenuItem>
                                     </Link>
 
-                                    <Link to="/orgs">
+                                    <Link to="/orgs" style={a}>
                                         <MenuItem className={classes.menuItem}>
                                             Организации
                                         </MenuItem>
@@ -255,14 +256,14 @@ class NavMenu extends React.Component {
                                             Карта
                                         </MenuItem>
                                     </Link>
-                                    <a href="http://localhost:3000" style={a}>
+                                    <a href="http://192.168.43.112:3000" style={a}>
                                         <MenuItem className={classes.menuItem}>
                                             Магазин
                                         </MenuItem>
                                     </a>
                                     {cookie.load('user')
                                         ? <div className={classes.last}>
-                                            <Avatar alt="You" src="/image/default-avatar.jpg" onClick={this.handleMenu}/>
+                                            <Avatar alt="You" src={"/image/avatar/"+(cookie.load('avatarURL')?cookie.load('avatarURL'):"default-avatar.jpg")} onClick={this.handleMenu}/>
                                             <Menu
                                                 id="menu-appbar"
                                                 anchorEl={anchorEl}
@@ -277,7 +278,7 @@ class NavMenu extends React.Component {
                                                 open={menuOpen}
                                                 onRequestClose={this.handleRequestClose}
                                             >
-                                                <Link to="/user">
+                                                <Link to="/user" style={a}>
                                                     <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
                                                 </Link>
                                                 <MenuItem onClick={this.logout.bind(this)}>Log out</MenuItem>

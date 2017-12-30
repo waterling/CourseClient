@@ -28,14 +28,15 @@ export default class SeriesPlayer extends Component {
     }
 
     handleStateChange(state, prevState) {
-        this.props.changeCurrentTime(state.currentTime,this.props.seriesID);
+        this.props.changeCurrentTime(state.currentTime,this.props.seriesID, state.duration);
     }
 
 
 
     render() {
         return (
-            <div className={"Player"} style={{height: 1000}}>
+            <div className={"Player"} style={{height: 600, width: 756}}>
+                <br/>
                 <Player
                     startTime={this.props.startTime}
                     ref="player"

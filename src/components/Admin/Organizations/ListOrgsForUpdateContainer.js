@@ -20,7 +20,7 @@ class ListOrgsForUpdateContainer extends Component {
     render() {
         return (
             <div>
-                <OrganizationsList organizationsList={this.props.organizationsList} link={'/admin/orgs/update/'}/>
+                <OrganizationsList organizationsList={this.props.organizationsList} link={'/admin/updateOrgs/'}/>
             </div>
         );
     }

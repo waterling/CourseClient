@@ -15,7 +15,7 @@ export default class FullSeries extends React.Component{
                 const item = this.props.series;
                 return(
                     <div>
-                        <div dangerouslySetInnerHTML={{__html: item.series.about}}/>
+                        {/*<div dangerouslySetInnerHTML={{__html: item.series.about}}/>*/}
                         <SeriesPlayer
                             key={item.id}
                             seriesID={item.series.id}

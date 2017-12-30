@@ -7,7 +7,7 @@ export default class AdminCharsPanel extends Component {
     render () {
         return(
             <div >
-                <Button raised color="primary">Add chars</Button>
+                <Link to={'/admin/chars/add'} ><Button raised color="primary">Добавить персонажа</Button></Link>
                 <ListCharsForUpdateContainer/>
             </div>
         )

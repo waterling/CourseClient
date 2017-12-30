@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import * as newsApi from '../../api/news-api';
 import './Loader.css';
 import * as seriesApi from "../../api/series-api";
+import {Divider} from "material-ui";
 
 class NewsListContainer extends Component {
     constructor(){
@@ -40,6 +41,9 @@ class NewsListContainer extends Component {
         }]} />);
         return (
             <div>
+                <div className="title"><h1>Новости сериала</h1></div>
+                <Divider/>
+                <br/>
                 <InfiniteScroll
                     pageStart={-1}
                     loadMore={this.loadNews.bind(this)}

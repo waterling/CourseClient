@@ -37,7 +37,7 @@ class UpdateSeries extends Component {
 
     render() {
         return (
-            <div>
+            <div key={this.props.seriesId}>
                 <TextField
                     label="Номер сезона"
                     placeholder="Номер сезона"
@@ -92,6 +92,7 @@ class UpdateSeries extends Component {
                 imgURL: this.state.imgURL
             };
             seriesApi.addSeries(series);
+            console.log(series);
         });
     }
 }

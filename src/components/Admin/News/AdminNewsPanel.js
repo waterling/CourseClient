@@ -7,7 +7,7 @@ export default class AdminNewsPanel extends Component {
     render () {
         return(
             <div >
-                <Button raised color="primary">Add news</Button>
+                <Link to={'/admin/addNews'} ><Button raised color="primary">Добавить новость</Button></Link>
                 <UpdateNewsContainer/>
             </div>
         )

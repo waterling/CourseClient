@@ -22,7 +22,7 @@ class ListSeriesForUpdateContainer extends Component {
     render() {
         return (
             <div>
-                <NewSeriesList link={'/admin/online/update/'} seriesList={this.props.seriesList} numOfSeason={this.props.numOfSeason}/>
+                <NewSeriesList link={'/admin/updateSeries/'} seriesList={this.props.seriesList} numOfSeason={this.props.numOfSeason}/>
             </div>
         );
     }

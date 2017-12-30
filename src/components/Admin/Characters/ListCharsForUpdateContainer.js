@@ -29,7 +29,7 @@ class ListCharsForUpdateContainer extends Component {
 
     render() {
         let key = this.state.items.length;
-        this.state.items.push(<ShortChars link={'/admin/chars/update/'} charsList={this.props.charsList} key={key}/>);
+        this.state.items.push(<ShortChars link={'/admin/updateChars/'} charsList={this.props.charsList} key={key}/>);
         return (
             <div>
                 <InfiniteScroll

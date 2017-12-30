@@ -34,11 +34,11 @@ class UpdateNewsContainer extends Component {
         const buttons = [
             {
                 text: 'edit',
-                link: '/admin/news/update/'
+                link: '/admin/updateNews/'
             },
             {
                 text: 'delete',
-                link: '/admin/news/delete/'
+                link: '/admin/deleteNews/'
             }
         ];
         let key = this.state.items.length;
